@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button"
 import { PhoneInput } from "@/components/phone-input"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { VideoModal } from "@/components/video-modal"
 
 const testimonials = [
   {
@@ -158,13 +159,19 @@ export default function LandingPage() {
         {/* Hero Section */}
         <section className="px-6 pb-16 pt-12 md:pb-24 md:pt-20">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-1.5 text-sm text-muted-foreground">
-              <span className="flex h-2 w-2 rounded-full bg-success" />
+            {/* Background Gradients */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+              <div className="absolute top-[-20%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-primary/20 blur-[100px]" />
+              <div className="absolute bottom-[-20%] right-[20%] h-[30rem] w-[30rem] rounded-full bg-purple-500/20 blur-[100px]" />
+            </div>
+
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
               <AnimatedCounter end={2847293} /> spam calls blocked this month
             </p>
             
-            <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-              Tired of spam calls?
+            <h1 className="text-balance text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-sm">
+              Tired of <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">spam calls?</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground md:text-xl">
               Data brokers sell your phone number to telemarketers. We find where your data is exposed and remove it automatically.
@@ -297,12 +304,7 @@ export default function LandingPage() {
 
                 {/* Video placeholder */}
                 <div className="mt-8">
-                  <button className="group flex items-center gap-3 text-sm text-background/70 transition-colors hover:text-background">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 transition-colors group-hover:bg-background/20">
-                      <Play className="h-4 w-4 text-background" />
-                    </div>
-                    Watch how it works (2 min)
-                  </button>
+                  <VideoModal />
                 </div>
               </div>
             </div>
