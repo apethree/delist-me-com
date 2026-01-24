@@ -10,7 +10,10 @@ import {
   LogOut,
   RefreshCw,
   Shield,
-  ExternalLink,
+  Home,
+  Settings,
+  Bell,
+  ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
@@ -49,17 +52,18 @@ interface DashboardClientProps {
 }
 
 const statusConfig: Record<string, { label: string; color: string; bgColor: string; icon: typeof CheckCircle2 }> = {
-  scanning: { label: "Scanning", color: "text-primary", bgColor: "bg-primary/10", icon: Search },
-  found: { label: "Found", color: "text-warning", bgColor: "bg-warning/10", icon: AlertCircle },
+  scanning: { label: "Scanning", color: "text-blue-600", bgColor: "bg-blue-500/10", icon: Search },
+  found: { label: "Found", color: "text-orange-600", bgColor: "bg-orange-500/10", icon: AlertCircle },
   pending: { label: "Pending", color: "text-muted-foreground", bgColor: "bg-muted", icon: Clock },
-  submitted: { label: "Submitted", color: "text-primary", bgColor: "bg-primary/10", icon: RefreshCw },
-  removed: { label: "Removed", color: "text-success", bgColor: "bg-success/10", icon: CheckCircle2 },
-  not_found: { label: "Not Found", color: "text-muted-foreground", bgColor: "bg-muted", icon: CheckCircle2 },
+  submitted: { label: "In Progress", color: "text-blue-600", bgColor: "bg-blue-500/10", icon: RefreshCw },
+  removed: { label: "Removed", color: "text-green-600", bgColor: "bg-green-500/10", icon: CheckCircle2 },
+  not_found: { label: "Clear", color: "text-green-600", bgColor: "bg-green-500/10", icon: CheckCircle2 },
 }
 
 export function DashboardClient({ profile, requests }: DashboardClientProps) {
   const router = useRouter()
   const [isSimulating, setIsSimulating] = useState(false)
+  const [activeTab, setActiveTab] = useState<'home' | 'alerts' | 'settings'>('home')
 
   // Calculate stats
   const totalBrokers = requests.length
@@ -89,71 +93,106 @@ export function DashboardClient({ profile, requests }: DashboardClientProps) {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-70">
-            <Shield className="h-6 w-6 text-primary" strokeWidth={1.5} />
-            <span className="text-lg font-semibold tracking-tight text-foreground">DelistMe</span>
-          </Link>
-          <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-muted-foreground">
-            <LogOut className="mr-2 h-4 w-4" />
-            Sign Out
+      {/* Mobile Header - App Style */}
+      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-xl">
+        <div className="flex items-center justify-between px-4 py-3 sm:px-6">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground">
+              <Shield className="h-5 w-5 text-background" />
+            </div>
+            <div>
+              <h1 className="text-lg font-bold text-foreground">DelistMe</h1>
+              <p className="text-xs text-muted-foreground">Privacy Dashboard</p>
+            </div>
+          </div>
+          <Button variant="ghost" size="icon" onClick={handleSignOut} className="h-10 w-10 rounded-xl">
+            <LogOut className="h-5 w-5" />
           </Button>
         </div>
       </header>
 
-      <main className="flex-1 px-6 py-12">
-        <div className="mx-auto max-w-4xl">
-          {/* Welcome Section */}
-          <div className="mb-12 text-center">
-            <h1 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              Privacy Dashboard
-            </h1>
-            <p className="mt-2 text-muted-foreground">
+      <main className="flex-1 overflow-y-auto pb-24">
+        {/* Protection Score Card */}
+        <div className="border-b border-border bg-gradient-to-b from-green-500/10 to-transparent px-4 py-8 sm:px-6">
+          <div className="mx-auto max-w-lg text-center">
+            <div className="relative mx-auto mb-4 h-32 w-32">
+              <svg className="h-32 w-32 -rotate-90 transform" viewBox="0 0 100 100">
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  className="text-border"
+                />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  strokeDasharray={`${(removed / (totalBrokers || 1)) * 283} 283`}
+                  strokeLinecap="round"
+                  className="text-green-500 transition-all duration-1000"
+                />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-3xl font-bold text-foreground">{removed}</span>
+                <span className="text-xs text-muted-foreground">Removed</span>
+              </div>
+            </div>
+            <h2 className="text-xl font-semibold text-foreground">
+              {removed > 0 ? "You're protected!" : "Scan in progress..."}
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">
               Monitoring {totalBrokers} data broker sites
             </p>
           </div>
+        </div>
 
-          {/* Stats Grid */}
-          <div className="mb-12 grid gap-4 md:grid-cols-4">
-            <div className="rounded-2xl bg-muted/30 p-6 text-center">
-              <p className="text-3xl font-semibold text-foreground">{scanned}</p>
-              <p className="mt-1 text-sm text-muted-foreground">Scanned</p>
-            </div>
-            <div className="rounded-2xl bg-warning/10 p-6 text-center">
-              <p className="text-3xl font-semibold text-warning">{found}</p>
-              <p className="mt-1 text-sm text-muted-foreground">Found</p>
-            </div>
-            <div className="rounded-2xl bg-success/10 p-6 text-center">
-              <p className="text-3xl font-semibold text-success">{removed}</p>
-              <p className="mt-1 text-sm text-muted-foreground">Removed</p>
-            </div>
-            <div className="rounded-2xl bg-muted/30 p-6 text-center">
-              <p className="text-3xl font-semibold text-foreground">{pending}</p>
-              <p className="mt-1 text-sm text-muted-foreground">Pending</p>
-            </div>
-          </div>
-
-          {/* Scan Progress */}
-          {scanProgress < 100 && (
-            <div className="mb-12 rounded-3xl bg-muted/20 p-6">
-              <div className="mb-4 flex items-center justify-between">
-                <h2 className="font-semibold text-foreground">Scan in Progress</h2>
+        {/* Scan Progress (if active) */}
+        {scanProgress < 100 && (
+          <div className="border-b border-border px-4 py-6 sm:px-6">
+            <div className="mx-auto max-w-lg">
+              <div className="mb-3 flex items-center justify-between">
+                <span className="text-sm font-medium text-foreground">Scanning...</span>
                 <span className="text-sm text-muted-foreground">{scanProgress}%</span>
               </div>
               <Progress value={scanProgress} className="h-2" />
-              <p className="mt-3 text-sm text-muted-foreground">
-                Scanning your information across data broker sites...
-              </p>
             </div>
-          )}
+          </div>
+        )}
 
-          {/* Data Brokers List */}
-          <div>
-            <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+        {/* Stats Grid */}
+        <div className="border-b border-border px-4 py-6 sm:px-6">
+          <div className="mx-auto grid max-w-lg grid-cols-4 gap-3">
+            <div className="rounded-xl bg-muted/50 p-4 text-center">
+              <p className="text-2xl font-bold text-foreground">{scanned}</p>
+              <p className="mt-1 text-xs text-muted-foreground">Scanned</p>
+            </div>
+            <div className="rounded-xl bg-orange-500/10 p-4 text-center">
+              <p className="text-2xl font-bold text-orange-600">{found}</p>
+              <p className="mt-1 text-xs text-muted-foreground">Found</p>
+            </div>
+            <div className="rounded-xl bg-green-500/10 p-4 text-center">
+              <p className="text-2xl font-bold text-green-600">{removed}</p>
+              <p className="mt-1 text-xs text-muted-foreground">Removed</p>
+            </div>
+            <div className="rounded-xl bg-blue-500/10 p-4 text-center">
+              <p className="text-2xl font-bold text-blue-600">{pending}</p>
+              <p className="mt-1 text-xs text-muted-foreground">Pending</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Data Brokers List */}
+        <div className="px-4 py-6 sm:px-6">
+          <div className="mx-auto max-w-lg">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               Data Broker Status
-            </h2>
+            </h3>
             <div className="space-y-2">
               {requests.map((request) => {
                 const config = statusConfig[request.status] || statusConfig.pending
@@ -163,9 +202,9 @@ export function DashboardClient({ profile, requests }: DashboardClientProps) {
                 return (
                   <div
                     key={request.id}
-                    className="flex items-center justify-between rounded-2xl bg-muted/20 p-4 transition-colors hover:bg-muted/30"
+                    className="flex items-center justify-between rounded-xl bg-muted/30 p-4 transition-colors active:bg-muted/50"
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                       <div
                         className={cn(
                           "flex h-10 w-10 items-center justify-center rounded-xl",
@@ -183,28 +222,21 @@ export function DashboardClient({ profile, requests }: DashboardClientProps) {
                       </div>
                       <div>
                         <p className="font-medium text-foreground">{broker.name}</p>
-                        <p className="flex items-center gap-1 text-sm text-muted-foreground">
-                          {broker.domain}
-                          <ExternalLink className="h-3 w-3" />
-                        </p>
+                        <p className="text-sm text-muted-foreground">{broker.domain}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      {broker.risk_level === "high" && (
-                        <Badge variant="outline" className="border-destructive/50 text-destructive">
-                          High Risk
-                        </Badge>
-                      )}
+                    <div className="flex items-center gap-2">
                       <Badge
                         variant="secondary"
                         className={cn(
                           "font-normal",
-                          request.status === "removed" && "bg-success/10 text-success",
-                          request.status === "found" && "bg-warning/10 text-warning"
+                          request.status === "removed" && "bg-green-500/10 text-green-600",
+                          request.status === "found" && "bg-orange-500/10 text-orange-600"
                         )}
                       >
                         {config.label}
                       </Badge>
+                      <ChevronRight className="h-4 w-4 text-muted-foreground" />
                     </div>
                   </div>
                 )
@@ -214,15 +246,41 @@ export function DashboardClient({ profile, requests }: DashboardClientProps) {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-border/40 px-6 py-6">
-        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
-          <Link href="/help" className="hover:text-foreground">Help</Link>
-          <Link href="/privacy" className="hover:text-foreground">Privacy</Link>
-          <Link href="/terms" className="hover:text-foreground">Terms</Link>
-          <Link href="/contact" className="hover:text-foreground">Contact</Link>
+      {/* Mobile Bottom Navigation - App Style */}
+      <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 backdrop-blur-xl safe-area-inset-bottom">
+        <div className="flex items-center justify-around py-2">
+          <button
+            onClick={() => setActiveTab('home')}
+            className={cn(
+              "flex flex-col items-center gap-1 px-6 py-2 transition-colors",
+              activeTab === 'home' ? 'text-foreground' : 'text-muted-foreground'
+            )}
+          >
+            <Home className="h-5 w-5" />
+            <span className="text-xs font-medium">Home</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('alerts')}
+            className={cn(
+              "flex flex-col items-center gap-1 px-6 py-2 transition-colors",
+              activeTab === 'alerts' ? 'text-foreground' : 'text-muted-foreground'
+            )}
+          >
+            <Bell className="h-5 w-5" />
+            <span className="text-xs font-medium">Alerts</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('settings')}
+            className={cn(
+              "flex flex-col items-center gap-1 px-6 py-2 transition-colors",
+              activeTab === 'settings' ? 'text-foreground' : 'text-muted-foreground'
+            )}
+          >
+            <Settings className="h-5 w-5" />
+            <span className="text-xs font-medium">Settings</span>
+          </button>
         </div>
-      </footer>
+      </nav>
     </div>
   )
 }

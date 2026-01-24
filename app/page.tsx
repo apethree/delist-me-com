@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Shield, Eye, Trash2, PhoneOff, Check, Play, X } from "lucide-react"
+import { ArrowRight, Shield, Eye, Trash2, PhoneOff, Check, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PhoneInput } from "@/components/phone-input"
 import { SiteHeader } from "@/components/site-header"
@@ -17,30 +17,23 @@ const testimonials = [
     name: "Sarah Mitchell",
     role: "Marketing Director",
     image: "/testimonials/avatar-1.jpg",
-    quote: "I was getting 10+ spam calls a day. Within a week of using DelistMe, it dropped to almost zero. Life-changing.",
+    quote: "I was getting 10+ spam calls a day. Within a week of using DelistMe, it dropped to almost zero.",
     reduction: "94%"
   },
   {
     name: "David Chen",
     role: "Software Engineer",
     image: "/testimonials/avatar-2.jpg",
-    quote: "As someone who values privacy, I was skeptical. But DelistMe actually delivers. My data was removed from 47 brokers.",
+    quote: "As someone who values privacy, I was skeptical. But DelistMe actually delivers.",
     reduction: "47 sites"
   },
   {
     name: "Emily Rodriguez",
     role: "Small Business Owner",
     image: "/testimonials/avatar-3.jpg",
-    quote: "The spam calls were affecting my business line. DelistMe fixed that. Now I only get calls from real customers.",
+    quote: "The spam calls were affecting my business line. DelistMe fixed that.",
     reduction: "89%"
   },
-  {
-    name: "Michael Park",
-    role: "Graduate Student",
-    image: "/testimonials/avatar-4.jpg",
-    quote: "I never realized how exposed my data was until DelistMe showed me. The dashboard makes everything transparent.",
-    reduction: "52 sites"
-  }
 ]
 
 const pricingPlans = [
@@ -181,134 +174,154 @@ export default function LandingPage() {
       <SiteHeader />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="px-6 pb-16 pt-12 md:pb-24 md:pt-20">
+        {/* Hero Section - Conversion Optimized */}
+        <section className="relative overflow-hidden px-4 pb-20 pt-16 sm:px-6 md:pb-32 md:pt-24">
+          {/* Subtle grid background */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px]" />
+            <div className="absolute left-1/2 top-0 -z-10 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-gradient-to-b from-destructive/20 to-transparent blur-[120px]" />
+          </div>
+
           <div className="mx-auto max-w-4xl text-center">
-            {/* Background Gradients */}
-            <div className="absolute inset-0 -z-10 overflow-hidden">
-              <div className="absolute top-[-20%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-primary/20 blur-[100px]" />
-              <div className="absolute bottom-[-20%] right-[20%] h-[30rem] w-[30rem] rounded-full bg-purple-500/20 blur-[100px]" />
+            {/* Social Proof Badge */}
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-border bg-background/80 px-4 py-2 text-sm backdrop-blur-sm">
+              <div className="flex -space-x-2">
+                <div className="h-6 w-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600" />
+                <div className="h-6 w-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-600" />
+                <div className="h-6 w-6 rounded-full bg-gradient-to-br from-orange-500 to-red-600" />
+              </div>
+              <span className="text-muted-foreground">
+                <span className="font-semibold text-foreground"><AnimatedCounter end={47832} /></span> people blocked spam this week
+              </span>
             </div>
-
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
-              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-              <AnimatedCounter end={2847293} /> spam calls blocked this month
-            </p>
             
-            <h1 className="text-balance text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-sm">
-              Tired of <span className="text-[#8B0000] dark:text-[#ff453a]">spam calls?</span>
+            {/* Main Headline */}
+            <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+              Stop <span className="text-[#DC2626] dark:text-[#EF4444]">spam calls</span>
+              <br className="hidden sm:block" />
+              <span className="text-muted-foreground"> in 60 seconds</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground md:text-xl">
-              Data brokers sell your phone number to telemarketers. We find where your data is exposed and remove it automatically.
+            
+            <p className="mx-auto mt-6 max-w-xl text-pretty text-base text-muted-foreground sm:text-lg md:text-xl">
+              Your phone number is on 50+ data broker sites. We find them and remove your info automatically.
             </p>
 
-            {/* Phone Input */}
-            <div className="mx-auto mt-10 max-w-md">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="relative">
-                  <PhoneInput
-                    value={phone}
-                    onChange={setPhone}
-                    disabled={isLoading}
-                    className="h-14 rounded-2xl border-border bg-card px-4 text-center text-lg shadow-sm transition-all focus-within:ring-2 focus-within:ring-primary/20"
-                  />
-                  {error && (
-                    <p className="mt-3 text-center text-sm text-destructive">{error}</p>
-                  )}
-                </div>
+            {/* CTA Section */}
+            <div className="mx-auto mt-10 max-w-sm">
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <PhoneInput
+                  value={phone}
+                  onChange={setPhone}
+                  disabled={isLoading}
+                  className="h-14 w-full border-2 border-border bg-background px-4 text-center text-lg transition-all focus-within:border-foreground focus-within:ring-0"
+                />
+                {error && (
+                  <p className="text-center text-sm text-destructive">{error}</p>
+                )}
 
                 <Button
                   type="submit"
-                  className="h-14 w-full rounded-2xl bg-primary text-base font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+                  className="h-14 w-full bg-foreground text-base font-semibold text-background shadow-2xl shadow-foreground/20 transition-all hover:bg-foreground/90 hover:shadow-foreground/30 disabled:opacity-50"
                   disabled={isLoading || phone.length !== 10}
                 >
                   {isLoading ? (
-                    "Scanning..."
+                    <span className="flex items-center gap-2">
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-background border-t-transparent" />
+                      Scanning...
+                    </span>
                   ) : (
                     <>
-                      Start Free Privacy Scan
+                      Start Free Scan
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </>
                   )}
                 </Button>
               </form>
 
-              <p className="mt-4 text-center text-xs text-muted-foreground">
-                No credit card required. See results in 60 seconds.
-              </p>
+              {/* Trust Signals */}
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1">
+                  <Shield className="h-3.5 w-3.5" />
+                  No credit card
+                </span>
+                <span className="hidden h-1 w-1 rounded-full bg-border sm:block" />
+                <span className="flex items-center gap-1">
+                  <Check className="h-3.5 w-3.5" />
+                  Results in 60 seconds
+                </span>
+                <span className="hidden h-1 w-1 rounded-full bg-border sm:block" />
+                <span className="flex items-center gap-1">
+                  <Eye className="h-3.5 w-3.5" />
+                  100% private
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Phone Mockup / Visual Section */}
-        <section className="overflow-hidden bg-foreground px-6 py-20 md:py-32">
+        {/* How It Works - Visual Demo */}
+        <section className="border-y border-border bg-muted/30 px-4 py-20 sm:px-6 md:py-32">
           <div className="mx-auto max-w-5xl">
             <div className="grid items-center gap-12 md:grid-cols-2">
-              {/* Left: Visual representation */}
-              <div className="relative mx-auto w-full max-w-sm">
-                <div className="aspect-[3/4] rounded-[2.5rem] bg-background/5 p-4">
-                  <div className="flex h-full flex-col rounded-[2rem] bg-background p-6">
+              {/* Phone Mockup */}
+              <div className="relative mx-auto w-full max-w-xs">
+                <div className="aspect-[3/4] rounded-[2rem] border border-border bg-background p-4 shadow-2xl">
+                  <div className="flex h-full flex-col rounded-[1.5rem] bg-muted/50 p-4">
                     <div className="mb-4 flex items-center justify-between">
                       <span className="text-xs font-medium text-muted-foreground">Incoming Calls</span>
                       <span className="text-xs text-muted-foreground">Today</span>
                     </div>
                     
-                    {/* Spam calls being blocked */}
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {[
                         { number: "+1 (555) 123-4567", label: "Likely Spam", blocked: true },
                         { number: "+1 (800) 999-8888", label: "Telemarketer", blocked: true },
-                        { number: "+1 (555) 987-6543", label: "Robocall", blocked: true },
                         { number: "Mom", label: "", blocked: false },
                         { number: "+1 (555) 456-7890", label: "Scam Risk", blocked: true },
                       ].map((call, i) => (
                         <div 
                           key={i} 
-                          className={`flex items-center justify-between rounded-xl p-3 ${
-                            call.blocked ? 'bg-destructive/10 line-through opacity-60' : 'bg-muted'
+                          className={`flex items-center justify-between rounded-lg p-3 ${
+                            call.blocked ? 'bg-destructive/10 opacity-60' : 'bg-background'
                           }`}
                         >
                           <div className="flex items-center gap-3">
                             <div className={`flex h-8 w-8 items-center justify-center rounded-full ${
-                              call.blocked ? 'bg-destructive/20' : 'bg-success/20'
+                              call.blocked ? 'bg-destructive/20' : 'bg-green-500/20'
                             }`}>
                               {call.blocked ? (
                                 <PhoneOff className="h-4 w-4 text-destructive" />
                               ) : (
-                                <Check className="h-4 w-4 text-success" />
+                                <Check className="h-4 w-4 text-green-600" />
                               )}
                             </div>
                             <div>
-                              <p className="text-sm font-medium text-foreground">{call.number}</p>
+                              <p className={`text-sm font-medium ${call.blocked ? 'line-through text-muted-foreground' : 'text-foreground'}`}>{call.number}</p>
                               {call.label && (
-                                <p className={`text-xs ${call.blocked ? 'text-destructive' : 'text-muted-foreground'}`}>
-                                  {call.label}
-                                </p>
+                                <p className="text-xs text-destructive">{call.label}</p>
                               )}
                             </div>
                           </div>
-                          {call.blocked && (
-                            <X className="h-4 w-4 text-destructive" />
-                          )}
+                          {call.blocked && <X className="h-4 w-4 text-destructive" />}
                         </div>
                       ))}
                     </div>
                     
                     <div className="mt-auto pt-4">
-                      <div className="rounded-xl bg-primary/10 p-3 text-center">
-                        <p className="text-sm font-semibold text-primary">4 spam calls blocked today</p>
+                      <div className="rounded-lg bg-green-500/10 p-3 text-center">
+                        <p className="text-sm font-semibold text-green-600">3 spam calls blocked today</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right: Content */}
-              <div className="text-background">
-                <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
+              {/* Content */}
+              <div>
+                <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                   See the difference in real-time
                 </h2>
-                <p className="mt-4 text-lg text-background/70">
+                <p className="mt-4 text-lg text-muted-foreground">
                   Our users report an average 87% reduction in spam calls within the first two weeks.
                 </p>
                 
@@ -319,15 +332,14 @@ export default function LandingPage() {
                     "Monitor and re-remove when data reappears"
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
-                        <Check className="h-3.5 w-3.5 text-primary-foreground" />
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-foreground">
+                        <Check className="h-3.5 w-3.5 text-background" />
                       </div>
-                      <span className="text-background/90">{item}</span>
+                      <span className="text-foreground">{item}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Video placeholder */}
                 <div className="mt-8">
                   <VideoModal />
                 </div>
@@ -337,7 +349,7 @@ export default function LandingPage() {
         </section>
 
         {/* Feature Cards */}
-        <section className="px-6 py-24 md:py-32">
+        <section className="px-4 py-20 sm:px-6 md:py-32">
           <div className="mx-auto max-w-5xl">
             <div className="mb-16 text-center">
               <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
@@ -353,22 +365,22 @@ export default function LandingPage() {
                 {
                   icon: Trash2,
                   title: "Automated Removal",
-                  description: "We submit opt-out requests to 50+ data brokers on your behalf. No manual work required."
+                  description: "We submit opt-out requests to 50+ data brokers on your behalf."
                 },
                 {
                   icon: Eye,
                   title: "24/7 Monitoring",
-                  description: "Continuous scans detect when your data reappears and automatically removes it again."
+                  description: "Continuous scans detect when your data reappears."
                 },
                 {
                   icon: Shield,
                   title: "Zero-Data Persistence",
-                  description: "We never store or sell your personal information. Your data stays yours. Period."
+                  description: "We never store or sell your personal information."
                 }
               ].map((feature, i) => (
-                <div key={i} className="rounded-3xl border border-border bg-card p-8 transition-shadow hover:shadow-lg">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-                    <feature.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                <div key={i} className="rounded-2xl border border-border bg-background p-8 transition-all hover:border-foreground/20 hover:shadow-lg">
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/5">
+                    <feature.icon className="h-6 w-6 text-foreground" strokeWidth={1.5} />
                   </div>
                   <h3 className="mb-2 text-xl font-semibold text-foreground">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -379,8 +391,8 @@ export default function LandingPage() {
         </section>
 
         {/* Testimonials */}
-        <section className="bg-muted/50 px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-6xl">
+        <section className="border-y border-border bg-muted/30 px-4 py-20 sm:px-6 md:py-32">
+          <div className="mx-auto max-w-5xl">
             <div className="mb-16 text-center">
               <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 Real people. Real results.
@@ -390,76 +402,41 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-3">
               {testimonials.map((testimonial, i) => (
-                <div key={i} className="rounded-3xl bg-background p-8 shadow-sm">
-                  <div className="mb-6 flex items-center gap-4">
+                <div key={i} className="rounded-2xl border border-border bg-background p-6">
+                  <div className="mb-4 flex items-center gap-3">
                     <Image
-                      src={testimonial.image || "/placeholder.svg"}
+                      src={testimonial.image}
                       alt={testimonial.name}
-                      width={56}
-                      height={56}
+                      width={48}
+                      height={48}
                       className="rounded-full object-cover"
                     />
                     <div>
                       <p className="font-semibold text-foreground">{testimonial.name}</p>
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
-                    <div className="ml-auto rounded-full bg-success/10 px-3 py-1 text-sm font-semibold text-success">
-                      {testimonial.reduction} reduction
-                    </div>
                   </div>
-                  <p className="text-lg leading-relaxed text-foreground/80">{`"${testimonial.quote}"`}</p>
+                  <p className="text-foreground/80">&ldquo;{testimonial.quote}&rdquo;</p>
+                  <div className="mt-4 inline-block rounded-full bg-green-500/10 px-3 py-1 text-sm font-semibold text-green-600">
+                    {testimonial.reduction} reduction
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 flex items-center justify-center gap-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-muted">
-                <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                </svg>
-              </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-muted">
-                <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-              </div>
-            </div>
-            
-            <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Built by engineers who were tired of spam too.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-              Our team includes former engineers from Google and Apple who understand data privacy at scale. We built DelistMe because we were frustrated with the same problem you have.
-            </p>
-            
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
-              <span className="rounded-full border border-border px-4 py-2">Ex-Google Privacy Team</span>
-              <span className="rounded-full border border-border px-4 py-2">Ex-Apple Security</span>
-              <span className="rounded-full border border-border px-4 py-2">Stanford CS</span>
-              <span className="rounded-full border border-border px-4 py-2">YC W24</span>
-            </div>
-          </div>
-        </section>
-
         {/* Pricing */}
-        <section id="pricing" className="bg-muted/50 px-6 py-24 md:py-32">
+        <section id="pricing" className="px-4 py-20 sm:px-6 md:py-32">
           <div className="mx-auto max-w-5xl">
             <div className="mb-16 text-center">
               <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 Simple, transparent pricing
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Start free. Upgrade when you are ready for full protection.
+                Start free. Upgrade when you&apos;re ready.
               </p>
             </div>
 
@@ -467,14 +444,14 @@ export default function LandingPage() {
               {pricingPlans.map((plan, i) => (
                 <div 
                   key={i} 
-                  className={`relative rounded-3xl p-8 ${
+                  className={`relative rounded-2xl p-8 ${
                     plan.highlighted 
-                      ? 'bg-foreground text-background shadow-2xl' 
-                      : 'bg-background border border-border'
+                      ? 'border-2 border-foreground bg-foreground text-background shadow-2xl' 
+                      : 'border border-border bg-background'
                   }`}
                 >
                   {plan.badge && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-semibold text-primary-foreground">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-green-500 px-4 py-1 text-xs font-semibold text-white">
                       {plan.badge}
                     </span>
                   )}
@@ -501,7 +478,7 @@ export default function LandingPage() {
                   <ul className="mb-8 space-y-3">
                     {plan.features.map((feature, j) => (
                       <li key={j} className="flex items-center gap-3">
-                        <Check className={`h-4 w-4 ${plan.highlighted ? 'text-primary' : 'text-success'}`} />
+                        <Check className={`h-4 w-4 ${plan.highlighted ? 'text-green-400' : 'text-green-600'}`} />
                         <span className={`text-sm ${plan.highlighted ? 'text-background/90' : 'text-foreground/80'}`}>
                           {feature}
                         </span>
@@ -511,10 +488,10 @@ export default function LandingPage() {
 
                   <Button 
                     onClick={() => plan.name === "Free Scan" ? window.scrollTo({ top: 0, behavior: 'smooth' }) : handleCheckout(plan.name)}
-                    className={`w-full rounded-xl cursor-pointer ${
+                    className={`w-full ${
                       plan.highlighted 
                         ? 'bg-background text-foreground hover:bg-background/90' 
-                        : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                        : 'bg-foreground text-background hover:bg-foreground/90'
                     }`}
                     disabled={isLoading}
                   >
@@ -527,7 +504,7 @@ export default function LandingPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="px-6 py-24 md:py-32">
+        <section className="border-t border-border bg-muted/30 px-4 py-20 sm:px-6 md:py-32">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-5xl">
               Take back your privacy today.
@@ -536,14 +513,12 @@ export default function LandingPage() {
               Start your free scan in under 60 seconds. No credit card required.
             </p>
             <Button
-              asChild
               size="lg"
-              className="mt-8 h-14 rounded-2xl bg-primary px-10 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30"
+              className="mt-8 h-14 bg-foreground px-10 text-base font-semibold text-background shadow-2xl shadow-foreground/20 transition-all hover:bg-foreground/90"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
-                Start Free Scan
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              Start Free Scan
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </section>
