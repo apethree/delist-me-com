@@ -151,6 +151,31 @@ export default function LandingPage() {
     }
   }
 
+  const handleCheckout = async (plan: string) => {
+    setIsLoading(true)
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan }),
+      })
+
+      if (response.status === 401) {
+        router.push("/login")
+        return
+      }
+
+      const data = await response.json()
+      if (data.url) {
+        window.location.href = data.url
+      }
+    } catch (err) {
+      console.error("Checkout error:", err)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
@@ -171,7 +196,7 @@ export default function LandingPage() {
             </p>
             
             <h1 className="text-balance text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-sm">
-              Tired of <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">spam calls?</span>
+              Tired of <span className="text-[#8B0000] dark:text-[#ff453a]">spam calls?</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground md:text-xl">
               Data brokers sell your phone number to telemarketers. We find where your data is exposed and remove it automatically.
@@ -485,16 +510,15 @@ export default function LandingPage() {
                   </ul>
 
                   <Button 
-                    asChild
-                    className={`w-full rounded-xl ${
+                    onClick={() => plan.name === "Free Scan" ? window.scrollTo({ top: 0, behavior: 'smooth' }) : handleCheckout(plan.name)}
+                    className={`w-full rounded-xl cursor-pointer ${
                       plan.highlighted 
                         ? 'bg-background text-foreground hover:bg-background/90' 
                         : 'bg-primary text-primary-foreground hover:bg-primary/90'
                     }`}
+                    disabled={isLoading}
                   >
-                    <Link href={plan.name === "Free Scan" ? "/" : "/login"}>
-                      {plan.cta}
-                    </Link>
+                    {plan.cta}
                   </Button>
                 </div>
               ))}
