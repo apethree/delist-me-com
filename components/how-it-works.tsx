@@ -43,12 +43,7 @@ export function HowItWorks() {
                       <div className="h-1.5 w-12 bg-blue-400 rounded-full"></div>
                    </div>
                 </div>
-                {/* Decorative Cursor */}
-                <div className="absolute -bottom-3 -right-3">
-                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-100 fill-current drop-shadow-md">
-                     <path d="M5.5 3.21L20.8 18.5L5.5 18.5V3.21Z" fill="currentColor"/>
-                   </svg>
-                </div>
+
              </div>
           </div>
           <div className="p-8">
@@ -109,7 +104,7 @@ export function HowItWorks() {
                    <div className="w-5 h-5 rounded-full bg-green-900/40 text-green-400 flex items-center justify-center shrink-0"><Check className="w-3 h-3" /></div>
                    <div className="flex flex-col">
                       <span className="text-xs font-semibold text-slate-200">Spam Blocked</span>
-                      <span className="text-[10px] text-slate-500">Just now</span>
+                      <span className="text-[10px] text-slate-400">Just now</span>
                    </div>
                 </div>
 
@@ -118,7 +113,7 @@ export function HowItWorks() {
                    <div className="w-5 h-5 rounded-full bg-blue-900/40 text-blue-400 flex items-center justify-center shrink-0"><Shield className="w-3 h-3" /></div>
                    <div className="flex flex-col">
                       <span className="text-xs font-semibold text-slate-200">Identity Secure</span>
-                      <span className="text-[10px] text-slate-500">Active protection</span>
+                      <span className="text-[10px] text-slate-400">Active protection</span>
                    </div>
                 </div>
 
@@ -127,7 +122,7 @@ export function HowItWorks() {
                    <div className="w-5 h-5 rounded-full bg-purple-900/40 text-purple-400 flex items-center justify-center shrink-0"><Zap className="w-3 h-3" /></div>
                    <div className="flex flex-col">
                       <span className="text-xs font-semibold text-slate-200">Monitoring</span>
-                      <span className="text-[10px] text-slate-500">24/7 Scanning</span>
+                      <span className="text-[10px] text-slate-400">24/7 Scanning</span>
                    </div>
                 </div>
                 

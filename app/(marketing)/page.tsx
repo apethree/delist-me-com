@@ -1,4 +1,11 @@
-"use client"
+
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'DelistMe - Stop Spam Calls',
+  description: 'DelistMe removes your personal information from data broker sites to reduce spam calls and protect your privacy.',
+}
+
 
 import React from "react"
 import { HeroChat } from "@/components/hero-chat"
@@ -8,10 +15,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Lock, Search, Package, ShoppingBag, Utensils, Check } from "lucide-react"
 import { Phone } from "@/components/ui/phone"
-import { SpamReductionChart } from "@/components/charts/spam-reduction"
-import { CallFilteringFlow } from "@/components/charts/call-filtering-flow"
-import { SpamTrendChart } from "@/components/charts/spam-trend-chart"
-import Threads from "@/components/backgrounds/threads"
+import { Threads, SpamReductionChart, CallFilteringFlow, SpamTrendChart } from "@/components/home-visuals"
 import { HowItWorks } from "@/components/how-it-works"
 
 export default function Home() {
@@ -43,9 +47,22 @@ export default function Home() {
                   className="opacity-40 dark:opacity-20"
                 />
              </div>
-             <div className="w-full max-w-4xl mx-auto z-10 relative">
+             <section className="w-full pt-12 md:pt-24 lg:pt-32 pb-12 z-10 relative">
+        <div className="container px-4 md:px-6">
+          <div className="mb-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 dark:text-white mb-4">
+              Tired of spam calls?{" "}
+              <br className="sm:hidden" />
+              <span className="text-green-500 dark:text-green-400">
+                We fix that.
+              </span>
+            </h1>
+          </div>
+          <div className="w-full max-w-4xl mx-auto">
                 <HeroChat />
              </div>
+        </div>
+      </section>
           </section>
 
           {/* Social Proof - Spans full width */}
@@ -79,7 +96,7 @@ export default function Home() {
                step="01"
                title="Silence the Noise"
                desc="Drastic reduction in robocalls and spam texts within days. Finally enjoy a quiet phone again."
-               image="https://images.unsplash.com/photo-1492112007959-c35ae067c37b?q=80&w=1584&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+               image="/images/features/feature-silence.webp"
                overlay="bg-blue-900/40"
              />
           </div>
@@ -101,7 +118,7 @@ export default function Home() {
                step="02"
                title="Reclaim Your Time"
                desc="Stop wasting time screening calls. We filter out the junk so you only answer what matters."
-               image="https://images.unsplash.com/photo-1653762381400-2762e3a403e5?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+               image="/images/features/feature-reclaim.webp"
                overlay="bg-indigo-900/40"
              />
           </div>
@@ -112,7 +129,7 @@ export default function Home() {
                step="03"
                title="Peace of Mind"
                desc="Knowing your personal number is protected means no more worrying about who has your data."
-               image="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=90&w=1200"
+               image="/images/features/feature-peace.webp"
                overlay="bg-slate-900/40"
              />
           </div>
@@ -121,7 +138,7 @@ export default function Home() {
           <div className="col-span-1 md:col-span-4 bg-gray-50 dark:bg-gray-900 border-t-0 grid grid-cols-1 md:grid-cols-2 relative overflow-hidden group">
              <div className="h-[400px] md:h-[500px] w-full relative">
                 <img 
-                  src="/images/happy-people.png" 
+                  src="/images/happy-people.webp" 
                   alt="Happy people using phones" 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -137,7 +154,7 @@ export default function Home() {
                  <div className="flex -space-x-3">
                    {[1,2,3,4].map(i => (
                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-black bg-gray-200 overflow-hidden">
-                        <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" />
+                        <img src={`/images/avatars/avatar-${i}.webp`} alt="User" />
                      </div>
                    ))}
                  </div>
@@ -205,8 +222,8 @@ export default function Home() {
                           {/* Search Bar - Aesthetic only */}
                           <div className="px-4 py-3">
                               <div className="bg-gray-100 dark:bg-gray-900 rounded-xl flex items-center px-3 py-2 gap-2">
-                                  <Search className="w-4 h-4 text-gray-400"/>
-                                  <span className="text-sm text-gray-400">Search</span>
+                                  <Search className="w-4 h-4 text-gray-500 dark:text-gray-400"/>
+                                  <span className="text-sm text-gray-500 dark:text-gray-400">Search</span>
                               </div>
                           </div>
 

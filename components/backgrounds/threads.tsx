@@ -5,6 +5,8 @@ import { Renderer, Program, Mesh, Triangle, Color } from 'ogl';
 
 import './threads.css';
 
+const u_line_count = 25; // Create constant for replacement
+
 const vertexShader = `
 attribute vec2 position;
 attribute vec2 uv;
@@ -27,7 +29,7 @@ uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
-const int u_line_count = 40;
+const int u_line_count = 25; // Reduced from 40 for performance
 const float u_line_width = 7.0;
 const float u_line_blur = 10.0;
 
@@ -139,12 +141,16 @@ const Threads = ({
 }: ThreadsProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number>();
+  const cachedRect = useRef<DOMRect | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
 
-    const renderer = new Renderer({ alpha: true });
+    // Use a capped dpr to improve performance on high-res screens
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    const renderer = new Renderer({ alpha: true, dpr });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
     gl.enable(gl.BLEND);
@@ -170,11 +176,19 @@ const Threads = ({
     const mesh = new Mesh(gl, { geometry, program });
 
     function resize() {
+      if (!container) return;
       const { clientWidth, clientHeight } = container;
+      // Use Renderer's setSize directly, which already applies dpr from constructor if needed, 
+      // but explicitly passing dpr-scaled values can be safer depending on ogl version. 
+      // OGL's setSize usually takes CSS pixels and scales internally by this.dpr.
       renderer.setSize(clientWidth, clientHeight);
-      program.uniforms.iResolution.value.r = clientWidth;
-      program.uniforms.iResolution.value.g = clientHeight;
-      program.uniforms.iResolution.value.b = clientWidth / clientHeight;
+      
+      program.uniforms.iResolution.value.r = gl.canvas.width;
+      program.uniforms.iResolution.value.g = gl.canvas.height;
+      program.uniforms.iResolution.value.b = gl.canvas.width / gl.canvas.height;
+
+      // Cache rect on resize to avoid layout trashing in mousemove
+      cachedRect.current = container.getBoundingClientRect();
     }
     window.addEventListener('resize', resize);
     resize();
@@ -183,7 +197,10 @@ const Threads = ({
     let targetMouse = [0.5, 0.5];
 
     function handleMouseMove(e: MouseEvent) {
-      const rect = container.getBoundingClientRect();
+      // Use cached rect
+      const rect = cachedRect.current;
+      if (!rect) return;
+      
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1.0 - (e.clientY - rect.top) / rect.height;
       targetMouse = [x, y];
@@ -196,25 +213,45 @@ const Threads = ({
       container.addEventListener('mouseleave', handleMouseLeave);
     }
 
-    function update(t: number) {
-      if (enableMouseInteraction) {
-        const smoothing = 0.05;
-        currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);
-        currentMouse[1] += smoothing * (targetMouse[1] - currentMouse[1]);
-        program.uniforms.uMouse.value[0] = currentMouse[0];
-        program.uniforms.uMouse.value[1] = currentMouse[1];
-      } else {
-        program.uniforms.uMouse.value[0] = 0.5;
-        program.uniforms.uMouse.value[1] = 0.5;
-      }
-      program.uniforms.iTime.value = t * 0.001;
+    let isVisible = true;
+    
+    // Use IntersectionObserver to pause animation when offscreen
+    const observer = new IntersectionObserver(([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+             // Restart loop if it was stopped (optional, but requestAnimationFrame usually handles itself if we just gate the logic)
+             // But actually we want to stop calling requestAnimationFrame when not visible to save CPU/battery
+             if (!animationFrameId.current) {
+                 animationFrameId.current = requestAnimationFrame(update);
+             }
+        }
+    });
+    observer.observe(container);
 
-      renderer.render({ scene: mesh });
-      animationFrameId.current = requestAnimationFrame(update);
+    function update(t: number) {
+      if (isVisible) {
+          if (enableMouseInteraction) {
+            const smoothing = 0.05;
+            currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);
+            currentMouse[1] += smoothing * (targetMouse[1] - currentMouse[1]);
+            program.uniforms.uMouse.value[0] = currentMouse[0];
+            program.uniforms.uMouse.value[1] = currentMouse[1];
+          } else {
+            program.uniforms.uMouse.value[0] = 0.5;
+            program.uniforms.uMouse.value[1] = 0.5;
+          }
+          program.uniforms.iTime.value = t * 0.001;
+    
+          renderer.render({ scene: mesh });
+          animationFrameId.current = requestAnimationFrame(update);
+      } else {
+          animationFrameId.current = undefined; // Mark as stopped
+      }
     }
     animationFrameId.current = requestAnimationFrame(update);
 
     return () => {
+      observer.disconnect();
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
       window.removeEventListener('resize', resize);
 

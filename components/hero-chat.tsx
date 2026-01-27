@@ -42,7 +42,13 @@ export function HeroChat() {
   const [currentTypingRole, setCurrentTypingRole] = useState<"user" | "assistant" | null>(null)
   
   // Sequence State
-  const [sequenceStep, setSequenceStep] = useState(0)
+  const [sequenceStep, setSequenceStep] = useState(-1) // Start at -1 to allow initial delay
+
+  useEffect(() => {
+    // Delay start by 1.5s to prioritize LCP and main thread for other assets
+    const timer = setTimeout(() => setSequenceStep(0), 1500)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Defines the automated intro sequence
   // delayAfter: how long to wait AFTER this message finishes typing before starting the next one
@@ -87,6 +93,7 @@ export function HeroChat() {
 
   // Master Sequence Controller
   useEffect(() => {
+    if (sequenceStep === -1) return
     if (sequenceStep >= introSequence.length) {
       setIsInputDisabled(false) // Enable input when sequence is done
       setCurrentTypingRole(null)
@@ -213,18 +220,7 @@ export function HeroChat() {
   return (
     <div className="w-full max-w-3xl mx-auto">
       
-      <div className="mb-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 dark:text-white mb-4">
-          Tired of spam calls?{" "}
-          <br className="sm:hidden" />
-          <span className="text-green-500 dark:text-green-400">
-            We fix that.
-          </span>
-        </h1>
-        {/* <p className="text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
-           Instant protection for your privacy and peace of mind.
-        </p> */}
-      </div>
+      {/* Header moved to parent page.tsx for LCP optimization */}
 
       {/* Chat Container */}
 
@@ -233,7 +229,7 @@ export function HeroChat() {
         <div className="flex items-center justify-between px-4 py-3 border-b border-border/40 bg-gray-50/50 dark:bg-gray-900/50">
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-foreground tracking-tight">Privacy Assistant</span>
-            <span className="text-xs text-muted-foreground px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono">
+            <span className="text-xs text-slate-600 dark:text-slate-400 px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono">
               AI
             </span>
           </div>
@@ -362,6 +358,7 @@ export function HeroChat() {
                   className="h-8 w-8 p-0 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
                   disabled={isInputDisabled}
                   title="Attach file (Coming soon)"
+                  aria-label="Attach file"
                 >
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -386,11 +383,11 @@ export function HeroChat() {
                 size="icon"
                 disabled={!input.trim() || isInputDisabled}
                 className={cn(
-                  "h-9 w-9 rounded-lg shrink-0 transition-all duration-200",
                   input.trim() && !isInputDisabled
                     ? "bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-600/25"
                     : "bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 cursor-not-allowed"
                 )}
+                aria-label="Send message"
               >
                 <ArrowUp className="h-4 w-4" strokeWidth={2.5} />
               </Button>

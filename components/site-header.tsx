@@ -19,7 +19,7 @@ export function SiteHeader({ variant = 'light' }: SiteHeaderProps) {
       <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-12 flex items-center justify-between">
         
         {/* Logo Section - Modern & Clean */}
-        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80 group">
+        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80 group" aria-label="DelistMe Home">
           <div className="flex flex-col">
             <h1 className={cn(
               "text-2xl md:text-3xl font-semibold tracking-tight leading-none",

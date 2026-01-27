@@ -46,7 +46,7 @@ export default function AboutPage() {
       <section className="px-6 pb-24">
         <div className="max-w-6xl mx-auto rounded-3xl overflow-hidden aspect-[21/9] relative shadow-2xl ring-1 ring-gray-200 dark:ring-gray-800">
            <Image 
-             src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2400" 
+             src="/images/about/mission.webp" 
              alt="Abstract representation of digital protection and privacy"
              fill
              className="object-cover"
@@ -135,7 +135,7 @@ export default function AboutPage() {
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] ring-1 ring-gray-200 dark:ring-gray-800">
                  <Image 
-                   src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200" 
+                   src="/images/about/team.webp" 
                    alt="Team working together"
                    fill
                    className="object-cover"
