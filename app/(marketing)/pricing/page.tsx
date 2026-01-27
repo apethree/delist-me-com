@@ -83,8 +83,7 @@ const faqs = [
 export default function PricingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader />
-
+      
       <main className="flex-1">
         {/* Hero */}
         <section className="px-6 py-16 md:py-24">
@@ -112,7 +111,7 @@ export default function PricingPage() {
                   }`}
                 >
                   {plan.badge && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-semibold text-primary-foreground">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-md bg-primary px-4 py-1 text-xs font-semibold text-primary-foreground">
                       {plan.badge}
                     </span>
                   )}
@@ -167,52 +166,54 @@ export default function PricingPage() {
         </section>
 
         {/* Comparison Table */}
-        <section className="bg-muted/50 px-6 py-24">
+        <section className="bg-muted/50 px-6 py-12 md:py-24">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-12 text-center text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Compare plans
             </h2>
             
             <div className="overflow-hidden rounded-2xl border border-border bg-background">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="p-4 text-left text-sm font-medium text-muted-foreground">Feature</th>
-                    <th className="p-4 text-center text-sm font-medium text-muted-foreground">Free</th>
-                    <th className="p-4 text-center text-sm font-medium text-foreground">Paid</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border">
-                  {[
-                    { feature: "Privacy scan", free: true, paid: true },
-                    { feature: "View exposed data", free: true, paid: true },
-                    { feature: "Automated removal requests", free: false, paid: true },
-                    { feature: "24/7 monitoring", free: false, paid: true },
-                    { feature: "50+ data brokers", free: true, paid: true },
-                    { feature: "Re-removal protection", free: false, paid: true },
-                    { feature: "Progress reports", free: false, paid: true },
-                    { feature: "Priority support", free: false, paid: true },
-                  ].map((row, i) => (
-                    <tr key={i}>
-                      <td className="p-4 text-sm text-foreground">{row.feature}</td>
-                      <td className="p-4 text-center">
-                        {row.free ? (
-                          <Check className="mx-auto h-4 w-4 text-success" />
-                        ) : (
-                          <span className="text-muted-foreground">-</span>
-                        )}
-                      </td>
-                      <td className="p-4 text-center">
-                        {row.paid ? (
-                          <Check className="mx-auto h-4 w-4 text-success" />
-                        ) : (
-                          <span className="text-muted-foreground">-</span>
-                        )}
-                      </td>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[600px]">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="p-4 text-left text-sm font-medium text-muted-foreground">Feature</th>
+                      <th className="p-4 text-center text-sm font-medium text-muted-foreground">Free</th>
+                      <th className="p-4 text-center text-sm font-medium text-foreground">Paid</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {[
+                      { feature: "Privacy scan", free: true, paid: true },
+                      { feature: "View exposed data", free: true, paid: true },
+                      { feature: "Automated removal requests", free: false, paid: true },
+                      { feature: "24/7 monitoring", free: false, paid: true },
+                      { feature: "50+ data brokers", free: true, paid: true },
+                      { feature: "Re-removal protection", free: false, paid: true },
+                      { feature: "Progress reports", free: false, paid: true },
+                      { feature: "Priority support", free: false, paid: true },
+                    ].map((row, i) => (
+                      <tr key={i}>
+                        <td className="p-4 text-sm text-foreground">{row.feature}</td>
+                        <td className="p-4 text-center">
+                          {row.free ? (
+                            <Check className="mx-auto h-4 w-4 text-success" />
+                          ) : (
+                            <span className="text-muted-foreground">-</span>
+                          )}
+                        </td>
+                        <td className="p-4 text-center">
+                          {row.paid ? (
+                            <Check className="mx-auto h-4 w-4 text-success" />
+                          ) : (
+                            <span className="text-muted-foreground">-</span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </section>
@@ -257,8 +258,6 @@ export default function PricingPage() {
           </div>
         </section>
       </main>
-
-      <SiteFooter />
     </div>
   )
 }

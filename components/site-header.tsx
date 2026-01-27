@@ -1,112 +1,70 @@
-"use client"
-
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import { cn } from "@/lib/utils"
 
-export function SiteHeader() {
-  const pathname = usePathname()
-  const isAuthPage = pathname.startsWith("/login") || pathname.startsWith("/verify") || pathname.startsWith("/authorize")
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+interface SiteHeaderProps {
+  variant?: 'light' | 'dark'
+}
+
+export function SiteHeader({ variant = 'light' }: SiteHeaderProps) {
+  const isDark = variant === 'dark'
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-        {/* Logo - Larger and bolder */}
-        <Link href="/" className="group flex items-center gap-2 transition-opacity hover:opacity-80">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-foreground">
-            <span className="text-lg font-bold text-background">D</span>
+    <header className={cn(
+      "sticky top-0 z-50 w-full backdrop-blur-md",
+      isDark 
+        ? "bg-[#0A0A0A]/95 border-white/10 text-white shadow-lg ring-1 ring-white/5" 
+        : "bg-white/95 border-black/5 text-black shadow-sm"
+    )}>
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-12 flex items-center justify-between">
+        
+        {/* Logo Section - Modern & Clean */}
+        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80 group">
+          <div className="flex flex-col">
+            <h1 className={cn(
+              "text-2xl md:text-3xl font-semibold tracking-tight leading-none",
+              isDark ? "text-white drop-shadow-sm" : "text-black"
+            )}>
+              DelistMe
+            </h1>
           </div>
-          <span className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            DelistMe
-          </span>
         </Link>
-
-        {/* Desktop Navigation */}
-        {!isAuthPage && (
-          <nav className="hidden items-center gap-2 md:flex">
-            <Link 
-              href="/pricing" 
-              className="px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Pricing
-            </Link>
-            <Link 
-              href="/help" 
-              className="px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Help
-            </Link>
-            <div className="ml-2 flex items-center gap-2">
-              <Button 
-                asChild 
-                variant="ghost" 
-                size="sm" 
-                className="text-sm font-medium text-muted-foreground hover:text-foreground"
-              >
-                <Link href="/login">Sign In</Link>
-              </Button>
-              <Button 
-                asChild 
-                size="sm" 
-                className="rounded-full bg-foreground px-5 text-sm font-semibold text-background shadow-lg shadow-foreground/10 transition-all hover:bg-foreground/90 hover:shadow-xl"
-              >
-                <Link href="/">Get Started</Link>
-              </Button>
-            </div>
+        
+        {/* Actions Section */}
+        <div className="flex items-center gap-4">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold">
+            <Link href="/#how-it-works" className={cn("transition-colors", isDark ? "text-white/70 hover:text-white" : "text-black/70 hover:text-black")}>How it works</Link>
+            <Link href="/#pricing" className={cn("transition-colors", isDark ? "text-white/70 hover:text-white" : "text-black/70 hover:text-black")}>Pricing</Link>
+            <Link href="/about" className={cn("transition-colors", isDark ? "text-white/70 hover:text-white" : "text-black/70 hover:text-black")}>About</Link>
           </nav>
-        )}
+          
+          <div className={cn("h-6 w-px hidden md:block", isDark ? "bg-white/10" : "bg-black/10")} />
 
-        {/* Mobile Menu Button */}
-        {!isAuthPage && (
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-muted md:hidden"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        )}
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && !isAuthPage && (
-        <div className="border-t border-border/50 bg-background px-4 py-4 md:hidden">
-          <nav className="flex flex-col gap-2">
-            <Link 
-              href="/pricing" 
-              className="rounded-lg px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Pricing
-            </Link>
-            <Link 
-              href="/help" 
-              className="rounded-lg px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Help
-            </Link>
-            <div className="mt-2 flex flex-col gap-2 border-t border-border/50 pt-4">
-              <Button 
-                asChild 
-                variant="outline" 
-                className="w-full justify-center"
-              >
-                <Link href="/login" onClick={() => setMobileMenuOpen(false)}>Sign In</Link>
+          {/* Desktop: Separate Buttons */}
+          <div className="flex items-center gap-3">
+            <Link href="/login">
+              <Button variant="outline" className={cn(
+                "hidden md:inline-flex text-xs font-semibold h-9 px-4 transition-colors",
+                isDark 
+                  ? "text-white hover:text-white hover:bg-white/10" 
+                  : "text-black hover:text-black hover:bg-black/5"
+              )}>
+                Log in
               </Button>
-              <Button 
-                asChild 
-                className="w-full justify-center bg-foreground text-background hover:bg-foreground/90"
-              >
-                <Link href="/" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
+            </Link>
+            <Link href="/signup">
+              <Button className={cn(
+                "font-bold text-xs h-8 px-5 shadow-lg transition-all duration-300 hover:scale-[1.02] rounded-sm", // Sharper edges
+                isDark 
+                  ? "bg-white text-black hover:bg-gray-100 shadow-white/10" 
+                  : "bg-black text-white hover:bg-gray-900 shadow-black/20"
+              )}>
+                Get Protected
               </Button>
-            </div>
-          </nav>
+            </Link>
+          </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }

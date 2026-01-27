@@ -9,7 +9,7 @@ import { OAuthButtons } from "@/components/oauth-buttons"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
-export default function LoginPage() {
+export default function SignUpPage() {
   const router = useRouter()
   const supabase = createClient()
   const [mode, setMode] = useState<"phone" | "email">("phone")
@@ -18,7 +18,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
 
-  const handlePhoneLogin = async (e: React.FormEvent) => {
+  const handlePhoneSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
 
@@ -42,7 +42,7 @@ export default function LoginPage() {
         throw new Error(data.error || "Failed to send verification code")
       }
 
-      router.push(`/verify?phone=${encodeURIComponent(phone)}&login=true`)
+      router.push(`/verify?phone=${encodeURIComponent(phone)}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong")
     } finally {
@@ -50,7 +50,7 @@ export default function LoginPage() {
     }
   }
 
-  const handleEmailLogin = async (e: React.FormEvent) => {
+  const handleEmailSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
 
@@ -71,7 +71,7 @@ export default function LoginPage() {
 
       if (error) throw error
 
-      router.push(`/verify?email=${encodeURIComponent(email)}&login=true`)
+      router.push(`/verify?email=${encodeURIComponent(email)}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong")
     } finally {
@@ -95,9 +95,9 @@ export default function LoginPage() {
         <div className="bg-card border border-border rounded-lg shadow-xl p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Welcome back</h1>
+            <h1 className="text-3xl font-bold mb-2">Get Started</h1>
             <p className="text-muted-foreground">
-              Sign in to your account
+              Create your account and start protecting your privacy
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export default function LoginPage() {
 
           {/* Phone Form */}
           {mode === "phone" && (
-            <form onSubmit={handlePhoneLogin} className="space-y-4">
+            <form onSubmit={handlePhoneSignUp} className="space-y-4">
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium mb-2">
                   Phone Number
@@ -171,14 +171,14 @@ export default function LoginPage() {
                 className="w-full h-12 text-base font-medium"
                 disabled={isLoading || phone.length !== 10}
               >
-                {isLoading ? "Sending code..." : "Sign In"}
+                {isLoading ? "Sending code..." : "Continue"}
               </Button>
             </form>
           )}
 
           {/* Email Form */}
           {mode === "email" && (
-            <form onSubmit={handleEmailLogin} className="space-y-4">
+            <form onSubmit={handleEmailSignUp} className="space-y-4">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
                   Email Address
@@ -205,23 +205,24 @@ export default function LoginPage() {
                 className="w-full h-12 text-base font-medium"
                 disabled={isLoading || !email}
               >
-                {isLoading ? "Sending magic link..." : "Sign In"}
+                {isLoading ? "Sending magic link..." : "Continue"}
               </Button>
             </form>
           )}
 
           {/* Footer */}
           <p className="text-center text-sm text-muted-foreground mt-6">
-            {"Don't have an account?"}{" "}
-            <Link href="/signup" className="font-medium text-foreground hover:underline">
-              Get Started
+            Already have an account?{" "}
+            <Link href="/login" className="font-medium text-foreground hover:underline">
+              Sign in
             </Link>
           </p>
         </div>
 
         {/* Trust Signals */}
         <div className="mt-6 text-center text-xs text-muted-foreground">
-            <p>🔒 Your data is encrypted and secure</p>
+          <p>🔒 Your data is encrypted and secure</p>
+          <p className="mt-1">No credit card required • Cancel anytime</p>
         </div>
       </div>
     </div>

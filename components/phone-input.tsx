@@ -8,9 +8,10 @@ interface PhoneInputProps {
   onChange: (value: string) => void
   disabled?: boolean
   className?: string
+  placeholder?: string
 }
 
-export function PhoneInput({ value, onChange, disabled, className }: PhoneInputProps) {
+export function PhoneInput({ value, onChange, disabled, className, placeholder }: PhoneInputProps) {
   const [displayValue, setDisplayValue] = useState(() => formatPhoneNumber(value))
 
   const handleChange = useCallback(
@@ -27,7 +28,7 @@ export function PhoneInput({ value, onChange, disabled, className }: PhoneInputP
   return (
     <Input
       type="tel"
-      placeholder="(555) 123-4567"
+      placeholder={placeholder || "(555) 123-4567"}
       value={displayValue}
       onChange={handleChange}
       disabled={disabled}

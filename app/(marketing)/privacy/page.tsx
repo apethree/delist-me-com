@@ -111,8 +111,7 @@ export default function PrivacyPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader />
-
+      
       <main className="flex-1 px-6 py-16 md:py-24">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center md:text-left">
@@ -189,8 +188,6 @@ export default function PrivacyPage() {
           </div>
         </div>
       </main>
-
-      <SiteFooter />
     </div>
   )
 }
