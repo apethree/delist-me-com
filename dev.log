@@ -1,0 +1,354 @@
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.110:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 391ms
+[MIDDLEWARE] Processing request for: /auth/error
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/error'
+}
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+[MIDDLEWARE] Processing request for: /auth/error
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/error'
+}
+ GET /auth/login?verify=true&email=nitin0arya%40gmail.com 200 in 876ms (compile: 717ms, proxy.ts: 4ms, render: 156ms)
+ GET /auth/error?error=PKCE%20code%20verifier%20not%20found%20in%20storage.%20This%20can%20happen%20if%20the%20auth%20flow%20was%20initiated%20in%20a%20different%20browser%20or%20device%2C%20or%20if%20the%20storage%20was%20cleared.%20For%20SSR%20frameworks%20(Next.js%2C%20SvelteKit%2C%20etc.)%2C%20use%20%40supabase%2Fssr%20on%20both%20the%20server%20and%20client%20to%20store%20the%20code%20verifier%20in%20cookies. 200 in 951ms (compile: 596ms, proxy.ts: 62ms, render: 293ms)
+ GET /auth/error?error=PKCE%20code%20verifier%20not%20found%20in%20storage.%20This%20can%20happen%20if%20the%20auth%20flow%20was%20initiated%20in%20a%20different%20browser%20or%20device%2C%20or%20if%20the%20storage%20was%20cleared.%20For%20SSR%20frameworks%20(Next.js%2C%20SvelteKit%2C%20etc.)%2C%20use%20%40supabase%2Fssr%20on%20both%20the%20server%20and%20client%20to%20store%20the%20code%20verifier%20in%20cookies. 200 in 78ms (compile: 8ms, proxy.ts: 8ms, render: 62ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login 200 in 22ms (compile: 3ms, proxy.ts: 4ms, render: 15ms)
+[MIDDLEWARE] Processing request for: /
+[MIDDLEWARE] Auth status: { user: 'anonymous', error: 'Auth session missing!', path: '/' }
+DEBUG: Page Home Rendering
+ GET / 200 in 644ms (compile: 41ms, proxy.ts: 5ms, render: 598ms)
+[MIDDLEWARE] Processing request for: /
+[MIDDLEWARE] Auth status: { user: 'anonymous', error: 'Auth session missing!', path: '/' }
+DEBUG: Page Home Rendering
+ GET / 200 in 85ms (compile: 3ms, proxy.ts: 3ms, render: 79ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login 200 in 21ms (compile: 2ms, proxy.ts: 4ms, render: 15ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login?verify=true&email=nitin0arya%40gmail.com 200 in 26ms (compile: 4ms, proxy.ts: 7ms, render: 14ms)
+[MIDDLEWARE] Processing request for: /auth/callback
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/callback'
+}
+[AUTH CALLBACK] Received params: {
+  code: 'present',
+  next: '/dashboard',
+  fullUrl: 'http://localhost:3000/auth/callback?code=6293bd84-c40f-496c-a8b8-34bcde121647&next=%2Fdashboard'
+}
+[AUTH CALLBACK] All Cookies: [
+  'sb-nusjjnfdjstxrbadsyjy-auth-token',
+  'sb-127-auth-token-code-verifier',
+  '__next_hmr_refresh_hash__',
+  'sb-auth-code-verifier'
+]
+[AUTH CALLBACK] Verifier Cookie: FOUND
+[AUTH CALLBACK] Code exchange error: Error [AuthPKCECodeVerifierMissingError]: PKCE code verifier not found in storage. This can happen if the auth flow was initiated in a different browser or device, or if the storage was cleared. For SSR frameworks (Next.js, SvelteKit, etc.), use @supabase/ssr on both the server and client to store the code verifier in cookies.
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 400,
+  code: 'pkce_code_verifier_not_found'
+}
+ GET /auth/callback?code=6293bd84-c40f-496c-a8b8-34bcde121647&next=%2Fdashboard 307 in 146ms (compile: 82ms, proxy.ts: 6ms, render: 57ms)
+[MIDDLEWARE] Processing request for: /auth/error
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/error'
+}
+ GET /auth/error?error=PKCE%20code%20verifier%20not%20found%20in%20storage.%20This%20can%20happen%20if%20the%20auth%20flow%20was%20initiated%20in%20a%20different%20browser%20or%20device%2C%20or%20if%20the%20storage%20was%20cleared.%20For%20SSR%20frameworks%20(Next.js%2C%20SvelteKit%2C%20etc.)%2C%20use%20%40supabase%2Fssr%20on%20both%20the%20server%20and%20client%20to%20store%20the%20code%20verifier%20in%20cookies. 200 in 49ms (compile: 5ms, proxy.ts: 3ms, render: 40ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login 200 in 22ms (compile: 3ms, proxy.ts: 4ms, render: 15ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login?verify=true&email=nitin0arya%40gmail.com 200 in 32ms (compile: 5ms, proxy.ts: 4ms, render: 23ms)
+[MIDDLEWARE] Processing request for: /auth/callback
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/callback'
+}
+[AUTH CALLBACK] Received params: {
+  code: 'present',
+  next: '/dashboard',
+  fullUrl: 'http://localhost:3000/auth/callback?code=3dc763eb-81f1-438e-a763-a0cc42f6a5ed&next=%2Fdashboard'
+}
+[AUTH CALLBACK] All Cookies: [
+  'sb-nusjjnfdjstxrbadsyjy-auth-token',
+  'sb-127-auth-token-code-verifier',
+  '__next_hmr_refresh_hash__',
+  'sb-auth-code-verifier'
+]
+[AUTH CALLBACK] Verifier Cookie: FOUND
+[AUTH CALLBACK] Code exchange error: Error [AuthPKCECodeVerifierMissingError]: PKCE code verifier not found in storage. This can happen if the auth flow was initiated in a different browser or device, or if the storage was cleared. For SSR frameworks (Next.js, SvelteKit, etc.), use @supabase/ssr on both the server and client to store the code verifier in cookies.
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 400,
+  code: 'pkce_code_verifier_not_found'
+}
+ GET /auth/callback?code=3dc763eb-81f1-438e-a763-a0cc42f6a5ed&next=%2Fdashboard 307 in 35ms (compile: 824µs, proxy.ts: 4ms, render: 30ms)
+[MIDDLEWARE] Processing request for: /auth/error
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/error'
+}
+ GET /auth/error?error=PKCE%20code%20verifier%20not%20found%20in%20storage.%20This%20can%20happen%20if%20the%20auth%20flow%20was%20initiated%20in%20a%20different%20browser%20or%20device%2C%20or%20if%20the%20storage%20was%20cleared.%20For%20SSR%20frameworks%20(Next.js%2C%20SvelteKit%2C%20etc.)%2C%20use%20%40supabase%2Fssr%20on%20both%20the%20server%20and%20client%20to%20store%20the%20code%20verifier%20in%20cookies. 200 in 46ms (compile: 3ms, proxy.ts: 3ms, render: 40ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login 200 in 27ms (compile: 2ms, proxy.ts: 3ms, render: 22ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login?verify=true&email=nitin0arya%40gmail.com 200 in 22ms (compile: 4ms, proxy.ts: 4ms, render: 15ms)
+[MIDDLEWARE] Processing request for: /auth/callback
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/callback'
+}
+[AUTH CALLBACK] Received params: {
+  code: 'present',
+  next: '/dashboard',
+  fullUrl: 'http://localhost:3000/auth/callback?code=8ead0233-8a93-496a-9072-5ecdae040a60&next=%2Fdashboard'
+}
+[AUTH CALLBACK] All Cookies: [ 'sb-nusjjnfdjstxrbadsyjy-auth-token' ]
+[AUTH CALLBACK] Verifier Cookie: MISSING
+[AUTH CALLBACK] Code exchange error: Error [AuthPKCECodeVerifierMissingError]: PKCE code verifier not found in storage. This can happen if the auth flow was initiated in a different browser or device, or if the storage was cleared. For SSR frameworks (Next.js, SvelteKit, etc.), use @supabase/ssr on both the server and client to store the code verifier in cookies.
+    at ignore-listed frames {
+  __isAuthError: true,
+  status: 400,
+  code: 'pkce_code_verifier_not_found'
+}
+ GET /auth/callback?code=8ead0233-8a93-496a-9072-5ecdae040a60&next=%2Fdashboard 307 in 30ms (compile: 3ms, proxy.ts: 4ms, render: 23ms)
+[MIDDLEWARE] Processing request for: /auth/error
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/error'
+}
+ GET /auth/error?error=PKCE%20code%20verifier%20not%20found%20in%20storage.%20This%20can%20happen%20if%20the%20auth%20flow%20was%20initiated%20in%20a%20different%20browser%20or%20device%2C%20or%20if%20the%20storage%20was%20cleared.%20For%20SSR%20frameworks%20(Next.js%2C%20SvelteKit%2C%20etc.)%2C%20use%20%40supabase%2Fssr%20on%20both%20the%20server%20and%20client%20to%20store%20the%20code%20verifier%20in%20cookies. 200 in 83ms (compile: 17ms, proxy.ts: 4ms, render: 63ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login 200 in 145ms (compile: 34ms, proxy.ts: 44ms, render: 67ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login?verify=true&email=nitin0arya%40gmail.com 200 in 37ms (compile: 4ms, proxy.ts: 19ms, render: 15ms)
+[MIDDLEWARE] Processing request for: /auth/callback
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/callback'
+}
+[AUTH CALLBACK] Received params: {
+  code: 'present',
+  next: '/dashboard',
+  fullUrl: 'http://localhost:3000/auth/callback?code=1234d218-4421-4653-b491-87ea8f7b2eb2&next=%2Fdashboard'
+}
+[AUTH CALLBACK] All Cookies: [
+  'sb-nusjjnfdjstxrbadsyjy-auth-token',
+  'sb-127-auth-token-code-verifier',
+  '__next_hmr_refresh_hash__',
+  'sb-auth-code-verifier'
+]
+[AUTH CALLBACK] Verifier Cookie: FOUND
+ GET /auth/callback?code=1234d218-4421-4653-b491-87ea8f7b2eb2&next=%2Fdashboard 307 in 180ms (compile: 63ms, proxy.ts: 4ms, render: 113ms)
+[MIDDLEWARE] Processing request for: /dashboard
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard' }
+[MIDDLEWARE] Processing request for: /dashboard/authorize
+ GET /dashboard 307 in 303ms (compile: 42ms, proxy.ts: 44ms, render: 216ms)
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard/authorize' }
+ GET /dashboard/authorize 200 in 197ms (compile: 20ms, proxy.ts: 43ms, render: 134ms)
+[MIDDLEWARE] Processing request for: /api/auth/consent
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/api/auth/consent' }
+[v0] Update profile error: {
+  code: 'PGRST205',
+  details: null,
+  hint: null,
+  message: "Could not find the table 'public.profiles' in the schema cache"
+}
+ POST /api/auth/consent 500 in 225ms (compile: 33ms, proxy.ts: 85ms, render: 108ms)
+[MIDDLEWARE] Processing request for: /api/auth/consent
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/api/auth/consent' }
+[v0] Update profile error: {
+  code: 'PGRST205',
+  details: null,
+  hint: null,
+  message: "Could not find the table 'public.profiles' in the schema cache"
+}
+ POST /api/auth/consent 500 in 117ms (compile: 4ms, proxy.ts: 62ms, render: 51ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/auth/login' }
+[MIDDLEWARE] Processing request for: /dashboard
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard' }
+ GET /dashboard 200 in 197ms (compile: 6ms, proxy.ts: 64ms, render: 127ms)
+[MIDDLEWARE] Processing request for: /dashboard/authorize
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard/authorize' }
+[MIDDLEWARE] Processing request for: /dashboard/authorize
+ GET /dashboard/authorize 200 in 102ms (compile: 6ms, proxy.ts: 42ms, render: 54ms)
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard/authorize' }
+ GET /dashboard/authorize 200 in 93ms (compile: 3ms, proxy.ts: 45ms, render: 46ms)
+[MIDDLEWARE] Processing request for: /
+[MIDDLEWARE] Auth status: { user: 'anonymous', error: 'Auth session missing!', path: '/' }
+DEBUG: Page Home Rendering
+ GET / 200 in 509ms (compile: 5ms, proxy.ts: 3ms, render: 501ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login 200 in 63ms (compile: 4ms, proxy.ts: 3ms, render: 55ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login?verify=true&email=nitin0arya%40gmail.com 200 in 58ms (compile: 3ms, proxy.ts: 4ms, render: 52ms)
+[MIDDLEWARE] Processing request for: /auth/callback
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/callback'
+}
+[AUTH CALLBACK] Received params: {
+  code: 'present',
+  next: '/dashboard',
+  fullUrl: 'http://localhost:3000/auth/callback?code=99472fd9-126c-4c9a-be32-83d65467d75f&next=%2Fdashboard'
+}
+[AUTH CALLBACK] All Cookies: [ 'sb-nusjjnfdjstxrbadsyjy-auth-token', 'sb-auth-code-verifier' ]
+[AUTH CALLBACK] Verifier Cookie: FOUND
+ GET /auth/callback?code=99472fd9-126c-4c9a-be32-83d65467d75f&next=%2Fdashboard 307 in 69ms (compile: 3ms, proxy.ts: 8ms, render: 58ms)
+[MIDDLEWARE] Processing request for: /dashboard
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard' }
+[MIDDLEWARE] Processing request for: /dashboard/authorize
+ GET /dashboard 307 in 260ms (compile: 5ms, proxy.ts: 45ms, render: 210ms)
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard/authorize' }
+ GET /dashboard/authorize 200 in 142ms (compile: 4ms, proxy.ts: 43ms, render: 94ms)
+[MIDDLEWARE] Processing request for: /api/auth/consent
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/api/auth/consent' }
+[v0] Update profile error: {
+  code: 'PGRST205',
+  details: null,
+  hint: null,
+  message: "Could not find the table 'public.profiles' in the schema cache"
+}
+ POST /api/auth/consent 500 in 151ms (compile: 5ms, proxy.ts: 65ms, render: 82ms)
+[MIDDLEWARE] Processing request for: /
+[MIDDLEWARE] Auth status: { user: 'anonymous', error: 'Auth session missing!', path: '/' }
+DEBUG: Page Home Rendering
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET / 200 in 1792ms (compile: 1396ms, proxy.ts: 5ms, render: 390ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login 200 in 22ms (compile: 1808µs, proxy.ts: 3ms, render: 18ms)
+[MIDDLEWARE] Processing request for: /auth/login
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/login'
+}
+ GET /auth/login?verify=true&email=nitin0arya%40gmail.com 200 in 44ms (compile: 2ms, proxy.ts: 4ms, render: 38ms)
+[MIDDLEWARE] Processing request for: /auth/callback
+[MIDDLEWARE] Auth status: {
+  user: 'anonymous',
+  error: 'Auth session missing!',
+  path: '/auth/callback'
+}
+[AUTH CALLBACK] Received params: {
+  code: 'present',
+  next: '/dashboard',
+  fullUrl: 'http://localhost:3000/auth/callback?code=6e89ab27-d0e6-4684-87f4-30c7caae4006&next=%2Fdashboard'
+}
+[AUTH CALLBACK] All Cookies: [ 'sb-nusjjnfdjstxrbadsyjy-auth-token', 'sb-auth-code-verifier' ]
+[AUTH CALLBACK] Verifier Cookie: FOUND
+ GET /auth/callback?code=6e89ab27-d0e6-4684-87f4-30c7caae4006&next=%2Fdashboard 307 in 66ms (compile: 2ms, proxy.ts: 3ms, render: 61ms)
+[MIDDLEWARE] Processing request for: /dashboard
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard' }
+[MIDDLEWARE] Processing request for: /dashboard/authorize
+ GET /dashboard 307 in 226ms (compile: 3ms, proxy.ts: 51ms, render: 172ms)
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard/authorize' }
+ GET /dashboard/authorize 200 in 133ms (compile: 3ms, proxy.ts: 42ms, render: 87ms)
+[MIDDLEWARE] Processing request for: /api/auth/consent
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/api/auth/consent' }
+[v0] Fetch brokers error: {
+  code: 'PGRST205',
+  details: null,
+  hint: null,
+  message: "Could not find the table 'public.data_brokers' in the schema cache"
+}
+ POST /api/auth/consent 200 in 115ms (compile: 3ms, proxy.ts: 55ms, render: 57ms)
+[MIDDLEWARE] Processing request for: /dashboard
+[MIDDLEWARE] Auth status: { user: 'logged-in', error: undefined, path: '/dashboard' }
+ GET /dashboard 200 in 163ms (compile: 4ms, proxy.ts: 49ms, render: 111ms)
+[MIDDLEWARE] Processing request for: /.well-known/appspecific/com.chrome.devtools.json
+[MIDDLEWARE] Auth status: {
+  user: 'logged-in',
+  error: undefined,
+  path: '/.well-known/appspecific/com.chrome.devtools.json'
+}

@@ -54,7 +54,7 @@ export function HowItWorks() {
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Create your account in seconds. Security and privacy is our priority from day one.
             </p>
-            <Link href="/signup">
+            <Link href="/auth/login">
                 <Button className="w-full bg-white text-black hover:bg-gray-200 border-transparent font-medium">
                     Register Now <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>

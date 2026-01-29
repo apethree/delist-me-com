@@ -1,58 +1,63 @@
 "use client"
 
-import { ArrowRight, PhoneIncoming, ShieldCheck, XOctagon } from "lucide-react"
+import { ArrowDown, PhoneIncoming, ShieldCheck, Ban, Check } from "lucide-react"
 
 export function CallFilteringFlow() {
    return (
-      <div className="flex flex-col gap-6 w-full max-w-sm mx-auto">
+      <div className="flex flex-col w-full max-w-sm mx-auto relative">
+         {/* Connecting Line */}
+         <div className="absolute left-8 top-8 bottom-8 w-px bg-gradient-to-b from-zinc-700 via-zinc-600 to-transparent" />
+
          {/* Step 1: Incoming Call */}
-         <div className="flex items-center gap-4 p-4 rounded-xl border border-red-200 bg-red-50/50 dark:border-red-900/30 dark:bg-red-900/10">
-            <div className="h-10 w-10 shrink-0 rounded-full bg-red-100 dark:bg-red-900/40 flex items-center justify-center">
-               <PhoneIncoming className="h-5 w-5 text-red-600" />
+         <div className="relative flex items-center gap-6 p-4 group">
+            <div className="relative z-10 h-8 w-8 shrink-0 rounded-full border-2 border-zinc-700 bg-zinc-900 flex items-center justify-center">
+               <PhoneIncoming className="h-4 w-4 text-zinc-400" />
             </div>
-            <div>
-               <div className="font-semibold text-slate-900 dark:text-white">Incoming Spam Call</div>
-               <div className="text-xs text-slate-600 dark:text-slate-400">Likely Robocaller</div>
+            <div className="flex-1 min-w-0">
+               <div className="flex items-center justify-between">
+                  <p className="text-sm font-semibold text-white">Incoming Call</p>
+                  <span className="text-[10px] font-mono text-zinc-500">00:00.0s</span>
+               </div>
+               <p className="text-xs text-zinc-400 truncate">Unknown Caller ID</p>
             </div>
-            <div className="ml-auto text-xs font-mono text-slate-500 dark:text-slate-400">0.1s</div>
          </div>
 
-         <div className="flex justify-center -my-2">
-            <ArrowRight className="h-5 w-5 text-slate-300 rotate-90" />
+         {/* Step 2: Analysis */}
+         <div className="relative flex items-center gap-6 p-4 group">
+            <div className="relative z-10 h-8 w-8 shrink-0 rounded-full border-2 border-zinc-700 bg-zinc-900 flex items-center justify-center">
+               <div className="absolute inset-0 rounded-full bg-white animate-ping opacity-10" />
+               <ShieldCheck className="h-4 w-4 text-white" />
+            </div>
+            <div className="flex-1 min-w-0">
+               <div className="flex items-center justify-between">
+                  <p className="text-sm font-semibold text-white">Analyzing Pattern</p>
+                  <span className="text-[10px] font-mono text-zinc-500">00:00.1s</span>
+               </div>
+               <div className="flex items-center gap-2 mt-1">
+                  <span className="inline-flex items-center rounded-md border border-zinc-700 bg-zinc-800 px-2 py-0.5 text-[10px] font-medium text-zinc-300">
+                     Global Blocklist
+                  </span>
+                  <span className="inline-flex items-center rounded-md border border-zinc-700 bg-zinc-800 px-2 py-0.5 text-[10px] font-medium text-zinc-300">
+                     AI Score: 98%
+                  </span>
+               </div>
+            </div>
          </div>
 
-         {/* Step 2: AI Analysis */}
-         <div className="flex items-center gap-4 p-4 rounded-xl border border-blue-200 bg-blue-50/50 dark:border-blue-900/30 dark:bg-blue-900/10 relative overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/20 to-transparent animate-[shimmer_2s_infinite]" />
-            <div className="h-10 w-10 shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center">
-               <ShieldCheck className="h-5 w-5 text-blue-600" />
+         {/* Step 3: Action */}
+         <div className="relative flex items-center gap-6 p-4 group">
+            <div className="relative z-10 h-8 w-8 shrink-0 rounded-full border-2 border-zinc-700 bg-zinc-900 flex items-center justify-center">
+               <Ban className="h-4 w-4 text-zinc-400" />
             </div>
-            <div>
-               <div className="font-semibold text-slate-900 dark:text-white">AI Analysis</div>
-               <div className="text-xs text-slate-600 dark:text-slate-400">Pattern match confirmed</div>
-            </div>
-            <div className="ml-auto text-xs font-mono text-slate-500 dark:text-slate-400">0.3s</div>
-         </div>
-
-         <div className="flex justify-center -my-2">
-            <ArrowRight className="h-5 w-5 text-slate-300 rotate-90" />
-         </div>
-
-         {/* Step 3: Blocked */}
-         <div className="flex items-center gap-4 p-4 rounded-xl border border-green-200 bg-green-50/50 dark:border-green-900/30 dark:bg-green-900/10">
-            <div className="h-10 w-10 shrink-0 rounded-full bg-green-100 dark:bg-green-900/40 flex items-center justify-center">
-               <XOctagon className="h-5 w-5 text-green-600" />
-            </div>
-            <div>
-               <div className="font-semibold text-slate-900 dark:text-white">Auto-Blocked</div>
-               <div className="text-xs text-slate-600 dark:text-slate-400">Phone never rings</div>
-            </div>
-            <div className="ml-auto">
-               <span className="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/30 px-2 py-0.5 text-xs font-medium text-green-700 dark:text-green-300">
-                  Safe
-               </span>
+            <div className="flex-1 min-w-0">
+               <div className="flex items-center justify-between">
+                  <p className="text-sm font-semibold text-white">Auto-Blocked</p>
+                  <span className="text-[10px] font-mono text-zinc-500">00:00.2s</span>
+               </div>
+               <p className="text-xs text-zinc-400">Call rejected silently</p>
             </div>
          </div>
+         
       </div>
    )
 }

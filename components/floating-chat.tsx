@@ -92,85 +92,87 @@ export function FloatingChat() {
         </Button>
       </PopoverTrigger>
       <PopoverContent 
-        className="w-[350px] p-0 mr-4 mb-4 border-slate-200 dark:border-slate-800 shadow-2xl rounded-2xl overflow-hidden" 
+        className="w-[350px] p-0 mr-4 mb-4 bg-transparent border-none shadow-none" 
         side="top" 
         align="end"
         sideOffset={16}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 bg-blue-600 text-white">
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
-              <Sparkles className="h-4 w-4 text-white" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-sm">DelistMe AI</h3>
-              <p className="text-[10px] text-blue-100">Online • Replies instantly</p>
-            </div>
-          </div>
-          <Button variant="ghost" size="icon" className="h-6 w-6 text-white/80 hover:text-white hover:bg-white/20" onClick={() => setIsOpen(false)}>
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
-
-        {/* Chat Area */}
-        <div className="h-[350px] overflow-y-auto p-4 bg-slate-50 dark:bg-slate-900 space-y-3">
-          {messages.map((m) => (
-            <div
-              key={m.id}
-              className={cn(
-                "flex w-full animate-in fade-in slide-in-from-bottom-1 duration-200",
-                m.role === "user" ? "justify-end" : "justify-start"
-              )}
-            >
-              <div
-                className={cn(
-                  "rounded-2xl px-3 py-2 max-w-[85%] text-sm shadow-sm",
-                  m.role === "user"
-                    ? "bg-blue-600 text-white rounded-br-none"
-                    : "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-bl-none border border-slate-100 dark:border-slate-700"
-                )}
-              >
-                {m.content}
+        <div className="flex flex-col w-full h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-2xl rounded-2xl overflow-hidden">
+          {/* Header */}
+          <div className="flex items-center justify-between px-4 py-3 bg-blue-600 text-white shrink-0">
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
+                <Sparkles className="h-4 w-4 text-white" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-sm">DelistMe AI</h3>
+                <p className="text-[10px] text-blue-100">Online • Replies instantly</p>
               </div>
             </div>
-          ))}
-          {isTyping && (
-             <div className="flex justify-start">
-               <div className="rounded-2xl bg-white dark:bg-slate-800 px-3 py-2 rounded-bl-none border border-slate-100 dark:border-slate-700 shadow-sm">
-                 <div className="flex items-center gap-1">
-                   <div className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce" />
-                   <div className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.15s]" />
-                   <div className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.3s]" />
+            <Button variant="ghost" size="icon" className="h-6 w-6 text-white/80 hover:text-white hover:bg-white/20" onClick={() => setIsOpen(false)}>
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
+
+          {/* Chat Area */}
+          <div className="h-[350px] overflow-y-auto p-4 bg-slate-50 dark:bg-slate-900 space-y-3">
+            {messages.map((m) => (
+              <div
+                key={m.id}
+                className={cn(
+                  "flex w-full animate-in fade-in slide-in-from-bottom-1 duration-200",
+                  m.role === "user" ? "justify-end" : "justify-start"
+                )}
+              >
+                <div
+                  className={cn(
+                    "rounded-2xl px-3 py-2 max-w-[85%] text-sm shadow-sm",
+                    m.role === "user"
+                      ? "bg-blue-600 text-white rounded-br-none"
+                      : "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-bl-none border border-slate-100 dark:border-slate-700"
+                  )}
+                >
+                  {m.content}
+                </div>
+              </div>
+            ))}
+            {isTyping && (
+               <div className="flex justify-start">
+                 <div className="rounded-2xl bg-white dark:bg-slate-800 px-3 py-2 rounded-bl-none border border-slate-100 dark:border-slate-700 shadow-sm">
+                   <div className="flex items-center gap-1">
+                     <div className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce" />
+                     <div className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.15s]" />
+                     <div className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.3s]" />
+                   </div>
                  </div>
                </div>
-             </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
 
-        {/* Input */}
-        <div className="p-3 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
-          <form onSubmit={handleSubmit} className="relative flex items-center gap-2">
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask a question..."
-              className="flex-1 text-sm bg-slate-100 dark:bg-slate-900 border-0 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-500/20 focus:outline-none placeholder:text-slate-400 transition-all"
-              disabled={isTyping}
-            />
-            <Button 
-              type="submit" 
-              size="icon" 
-              className={cn(
-                "h-9 w-9 shrink-0 transition-all",
-                input.trim() ? "bg-blue-600 text-white shadow-md" : "bg-slate-200 text-slate-400 cursor-not-allowed"
-              )}
-              disabled={!input.trim() || isTyping}
-            >
-              <ArrowUp className="h-4 w-4" />
-            </Button>
-          </form>
+          {/* Input */}
+          <div className="p-3 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 shrink-0">
+            <form onSubmit={handleSubmit} className="relative flex items-center gap-2">
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Ask a question..."
+                className="flex-1 text-sm bg-slate-100 dark:bg-slate-900 border-0 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-500/20 focus:outline-none placeholder:text-slate-400 transition-all"
+                disabled={isTyping}
+              />
+              <Button 
+                type="submit" 
+                size="icon" 
+                className={cn(
+                  "h-9 w-9 shrink-0 transition-all",
+                  input.trim() ? "bg-blue-600 text-white shadow-md" : "bg-slate-200 text-slate-400 cursor-not-allowed"
+                )}
+                disabled={!input.trim() || isTyping}
+              >
+                <ArrowUp className="h-4 w-4" />
+              </Button>
+            </form>
+          </div>
         </div>
       </PopoverContent>
     </Popover>

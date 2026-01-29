@@ -3,6 +3,8 @@ import { Check, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { MobileBackButton } from "@/components/mobile-back-button"
+import { CheckoutButton } from "@/components/checkout-button"
 
 const pricingPlans = [
   {
@@ -34,7 +36,7 @@ const pricingPlans = [
       "Re-removal when data reappears"
     ],
     cta: "Get Protected",
-    href: "/login",
+    href: "/auth/login",
     highlighted: true,
     badge: "Save 38%"
   },
@@ -52,7 +54,7 @@ const pricingPlans = [
       "Cancel anytime"
     ],
     cta: "Start Monthly",
-    href: "/login",
+    href: "/auth/login",
     highlighted: false
   }
 ]
@@ -83,6 +85,7 @@ const faqs = [
 export default function PricingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <MobileBackButton />
       
       <main className="flex-1">
         {/* Hero */}
@@ -146,19 +149,33 @@ export default function PricingPage() {
                     ))}
                   </ul>
 
-                  <Button 
-                    asChild
-                    className={`w-full rounded-xl ${
-                      plan.highlighted 
-                        ? 'bg-background text-foreground hover:bg-background/90' 
-                        : 'bg-primary text-primary-foreground hover:bg-primary/90'
-                    }`}
-                  >
-                    <Link href={plan.href}>
+                  {plan.name === "Free Scan" ? (
+                    <Button 
+                      asChild
+                      className={`w-full rounded-xl ${
+                        plan.highlighted 
+                          ? 'bg-background text-foreground hover:bg-background/90' 
+                          : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                      }`}
+                    >
+                      <Link href={plan.href}>
+                        {plan.cta}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  ) : (
+                    <CheckoutButton
+                      plan={plan.name as "Monthly" | "Annual"}
+                      className={`w-full rounded-xl ${
+                        plan.highlighted 
+                          ? 'bg-background text-foreground hover:bg-background/90' 
+                          : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                      }`}
+                    >
                       {plan.cta}
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                    </CheckoutButton>
+                  )}
                 </div>
               ))}
             </div>

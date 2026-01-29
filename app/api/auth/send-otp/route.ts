@@ -5,25 +5,33 @@ export async function POST(request: Request) {
   try {
     const { phone } = await request.json()
 
-    if (!phone || phone.length !== 10) {
+    // Phone should come as full international format (e.g., +14159612582)
+    // Validate it starts with + and has at least 8 digits
+    if (!phone || typeof phone !== 'string' || !phone.startsWith('+')) {
       return NextResponse.json(
-        { error: "Invalid phone number" },
+        { error: "Please include country code with phone number" },
+        { status: 400 }
+      )
+    }
+
+    // Extract just the digits to validate length
+    const digitsOnly = phone.replace(/\D/g, '')
+    if (digitsOnly.length < 7) {
+      return NextResponse.json(
+        { error: "Phone number is too short" },
         { status: 400 }
       )
     }
 
     const supabase = await createClient()
 
-    // Format phone with country code for Supabase
-    const formattedPhone = `+1${phone}`
-
-    // Send OTP via Supabase Auth
+    // Send OTP via Supabase Auth - phone is already in international format
     const { error } = await supabase.auth.signInWithOtp({
-      phone: formattedPhone,
+      phone: phone,
     })
 
     if (error) {
-      console.error("[v0] Supabase OTP error:", error)
+      console.error("[OTP] Supabase OTP error:", error)
       return NextResponse.json(
         { error: error.message },
         { status: 400 }
@@ -32,7 +40,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("[v0] Send OTP error:", error)
+    console.error("[OTP] Send OTP error:", error)
     return NextResponse.json(
       { error: "Failed to send verification code" },
       { status: 500 }

@@ -1,15 +1,27 @@
-"use client"
-
 import React from "react"
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Lock, Server, CheckCircle2 } from "lucide-react"
 import { AppleLogo, GoogleLogo, NasaLogo, MicrosoftLogo } from "@/components/logos"
 import Image from "next/image"
+import { MobileBackButton } from "@/components/mobile-back-button"
+
+export const dynamic = 'force-static'
+
+export const metadata: Metadata = {
+  title: "About Us | DelistMe",
+  description: "Learn about DelistMe's mission to protect your privacy. Built by former security engineers from Apple, Google, and Microsoft.",
+  openGraph: {
+    title: "About Us | DelistMe",
+    description: "Learn about DelistMe's mission to protect your privacy. Built by former security engineers from Apple, Google, and Microsoft.",
+  }
+}
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-black font-sans selection:bg-foreground selection:text-background">
+      <MobileBackButton />
       
       {/* 1. Hero Section - Clean, minimal */}
       <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 px-6 overflow-hidden">
@@ -27,7 +39,7 @@ export default function AboutPage() {
             In an age of relentless data harvesting, privacy is no longer optional—it's essential. We use advanced AI to reclaim your privacy and give you back control of your digital life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
+            <Link href="/auth/login">
               <Button size="lg" className="rounded-full px-8 h-14 text-lg">
                 Start Your Free Scan <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -240,7 +252,7 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">Ready to take back your privacy?</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">Join thousands of users who have trusted DelistMe to protect their personal information and restore their peace of mind.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-               <Link href="/signup">
+               <Link href="/auth/login">
                  <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 rounded-full px-10 h-14 text-lg w-full sm:w-auto shadow-xl">
                    Start Free Scan
                  </Button>

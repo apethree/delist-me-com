@@ -8,17 +8,20 @@ export const metadata: Metadata = {
 
 
 import React from "react"
-import { HeroChat } from "@/components/hero-chat"
+import { HeroChat } from "@/components/lazy-components"
 import { TestimonialsMarqueeSection } from "@/components/testimonials-marquee"
 import { SocialProofSection } from "@/components/social-proof-section"
+import { TestimonialsGrid } from "@/components/testimonials-grid"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Lock, Search, Package, ShoppingBag, Utensils, Check } from "lucide-react"
 import { Phone } from "@/components/ui/phone"
-import { Threads, SpamReductionChart, CallFilteringFlow, SpamTrendChart } from "@/components/home-visuals"
+import { SpamReductionChart, CallFilteringFlow, SpamTrendChart } from "@/components/home-visuals"
 import { HowItWorks } from "@/components/how-it-works"
+import { CheckoutButton } from "@/components/checkout-button"
 
 export default function Home() {
+  console.log('DEBUG: Page Home Rendering');
   return (
     <div className="bg-white dark:bg-black min-h-screen font-sans">
       {/* 
@@ -38,16 +41,7 @@ export default function Home() {
 
           {/* Main Hero Section - Spans full width */}
           <section className="col-span-1 md:col-span-4 relative bg-white dark:bg-black py-10 md:py-16 px-6 md:px-12 flex flex-col items-center justify-center overflow-hidden">
-             <div className="absolute inset-0 z-0 -left-[35%] w-[170%]">
-                <Threads 
-                  color={[0.529, 0.808, 0.980]} 
-                  amplitude={0.8}
-                  distance={0.1}
-                  enableMouseInteraction
-                  className="opacity-40 dark:opacity-20"
-                />
-             </div>
-             <section className="w-full pt-12 md:pt-24 lg:pt-32 pb-12 z-10 relative">
+             <section className="w-full pt-2 md:pt-8 lg:pt-12 pb-12 z-10 relative">
         <div className="container px-4 md:px-6">
           <div className="mb-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 dark:text-white mb-4">
@@ -316,17 +310,17 @@ export default function Home() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-800">
                       
                         {/* Card 1: Intelligent Filtering */}
-                        <div className="bg-white dark:bg-black p-8 md:p-12 flex flex-col h-full relative group">
+                        <div className="bg-zinc-950 p-8 md:p-12 flex flex-col h-full relative group">
                            {/* Desktop Grid Intersection Plus */}
                            <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 z-20 hidden md:flex items-center justify-center pointer-events-none">
-                              <div className="w-5 h-5 text-gray-400 dark:text-gray-600">
+                              <div className="w-5 h-5 text-zinc-700">
                                 <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M7.49991 0.875C7.49991 0.875 7.49991 7.49991 7.49991 7.49991M7.49991 7.49991C7.49991 7.49991 7.49991 14.1249 7.49991 14.1249M7.49991 7.49991C7.49991 7.49991 14.1249 7.49991 14.1249 7.49991M7.49991 7.49991C7.49991 7.49991 0.875 7.49991 0.875 7.49991" stroke="currentColor"></path></svg>
                               </div>
                            </div>
 
                            <div className="mb-8">
-                              <h3 className="text-xl font-semibold mb-2 text-slate-900 dark:text-white">Intelligent Filtering</h3>
-                              <p className="text-slate-500 text-sm">How we process every incoming call.</p>
+                              <h3 className="text-xl font-semibold mb-2 text-white">Intelligent Filtering</h3>
+                              <p className="text-zinc-400 text-sm">How we process every incoming call.</p>
                            </div>
                            <div className="mt-auto">
                               <CallFilteringFlow />
@@ -353,12 +347,12 @@ export default function Home() {
                            <SpamTrendChart 
                              color="#ef4444" 
                              data={[
-                               { month: 'Jan', spam: 45 },
-                               { month: 'Feb', spam: 48 },
-                               { month: 'Mar', spam: 52 },
-                               { month: 'Apr', spam: 49 },
-                               { month: 'May', spam: 55 },
-                               { month: 'Jun', spam: 58 },
+                               { month: 'Jan', spam: 5 },
+                               { month: 'Feb', spam: 10 },
+                               { month: 'Mar', spam: 18 },
+                               { month: 'Apr', spam: 28 },
+                               { month: 'May', spam: 38 },
+                               { month: 'Jun', spam: 50 },
                              ]} 
                            />
                         </div>
@@ -394,6 +388,10 @@ export default function Home() {
              </div>
           </div>
 
+          <div className="col-span-1 md:col-span-4 bg-white dark:bg-black border-t-0">
+             <TestimonialsGrid />
+          </div>
+
           {/* Pricing Preview Section - New */}
           <div id="pricing" className="col-span-1 md:col-span-4 bg-white dark:bg-black border-t-0 py-24 px-6 md:px-12 flex flex-col items-center justify-center text-center">
              <div className="max-w-4xl mx-auto">
@@ -426,6 +424,9 @@ export default function Home() {
                          <li className="flex gap-2"><Check className="w-4 h-4 text-blue-400 shrink-0" /> 24/7 Monitoring</li>
                          <li className="flex gap-2"><Check className="w-4 h-4 text-blue-400 shrink-0" /> Virtual Phone Number</li>
                       </ul>
+                      <CheckoutButton plan="Annual" className="w-full bg-white text-black hover:bg-gray-200">
+                        Get Protected
+                      </CheckoutButton>
                    </div>
 
                    {/* Monthly */}
@@ -436,6 +437,9 @@ export default function Home() {
                          <li className="flex gap-2"><Check className="w-4 h-4 text-green-500 shrink-0" /> Continuous removal</li>
                          <li className="flex gap-2"><Check className="w-4 h-4 text-green-500 shrink-0" /> Cancel anytime</li>
                       </ul>
+                      <CheckoutButton plan="Monthly" variant="outline" className="w-full">
+                        Start Monthly
+                      </CheckoutButton>
                    </div>
                 </div>
 
@@ -464,7 +468,7 @@ function FeatureCard({ step, title, desc, image, overlay }: { step: string, titl
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
       <div className="relative h-full flex flex-col justify-end p-8 text-white z-10">
-        <div className="mb-auto opacity-50 font-mono text-lg tracking-widest border-l-2 border-white/50 pl-3">
+        <div className="mb-auto font-mono text-lg tracking-widest border-l-2 border-white pl-3 font-bold">
           {step}
         </div>
         

@@ -6,7 +6,6 @@ import { CheckCircle2, Lock, ArrowRight, Scan, FileX, Eye } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
-import { SiteHeader } from "@/components/site-header"
 import Link from "next/link"
 
 const consentItems = [
@@ -80,8 +79,6 @@ export default function AuthorizePage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader />
-
       {/* Progress Indicator */}
       <div className="border-b border-border/40 px-6 py-4">
         <div className="mx-auto flex max-w-md items-center justify-center gap-4">

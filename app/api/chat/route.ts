@@ -64,5 +64,5 @@ export async function POST(req: Request) {
     messages,
   })
 
-  return result.toDataStreamResponse()
+  return result.toTextStreamResponse()
 }

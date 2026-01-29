@@ -1,16 +1,19 @@
-"use client"
+import React from "react"
+import type { Metadata } from "next"
+import Link from "next/link"
+import { MobileBackButton } from "@/components/mobile-back-button"
+import { FaqSearch } from "@/components/faq-search"
 
-import { useState } from "react"
-import { Search } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+export const dynamic = 'force-static'
+
+export const metadata: Metadata = {
+  title: "Help Center | DelistMe",
+  description: "Find answers to common questions about DelistMe's data removal services, security, billing, and account management.",
+  openGraph: {
+    title: "Help Center | DelistMe",
+    description: "Find answers to common questions about DelistMe's data removal services, security, billing, and account management.",
+  }
+}
 
 const faqs = [
   {
@@ -67,19 +70,9 @@ const faqs = [
 ]
 
 export default function HelpPage() {
-  const [searchQuery, setSearchQuery] = useState("")
-
-  const filteredFaqs = faqs.map(category => ({
-    ...category,
-    items: category.items.filter(
-      item =>
-        item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.answer.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  })).filter(category => category.items.length > 0)
-
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <MobileBackButton />
       
       <main className="flex-1 px-6 py-16 md:py-24">
         <div className="mx-auto max-w-2xl">
@@ -92,50 +85,7 @@ export default function HelpPage() {
             </p>
           </div>
 
-          {/* Search */}
-          <div className="relative mb-12">
-            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search for answers..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-14 rounded-2xl border-border/60 bg-muted/30 pl-11 text-base"
-            />
-          </div>
-
-          {/* FAQ Accordion */}
-          <div className="space-y-8">
-            {filteredFaqs.length === 0 ? (
-              <div className="rounded-3xl bg-muted/30 p-8 text-center">
-                <p className="text-muted-foreground">No results found for &quot;{searchQuery}&quot;</p>
-              </div>
-            ) : (
-              filteredFaqs.map((category) => (
-                <div key={category.category}>
-                  <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-                    {category.category}
-                  </h2>
-                  <Accordion type="single" collapsible className="space-y-2">
-                    {category.items.map((item, index) => (
-                      <AccordionItem
-                        key={index}
-                        value={`${category.category}-${index}`}
-                        className="rounded-2xl border-none bg-muted/30 px-6"
-                      >
-                        <AccordionTrigger className="py-5 text-left font-medium hover:no-underline">
-                          {item.question}
-                        </AccordionTrigger>
-                        <AccordionContent className="pb-5 text-muted-foreground leading-relaxed">
-                          {item.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </div>
-              ))
-            )}
-          </div>
+          <FaqSearch faqs={faqs} />
 
           {/* Contact CTA */}
           <div className="mt-16 rounded-3xl bg-muted/30 p-8 text-center">
@@ -143,12 +93,12 @@ export default function HelpPage() {
             <p className="mt-2 text-sm text-muted-foreground">
               Our support team is available 24/7 to help.
             </p>
-            <a
+            <Link
               href="/contact"
               className="mt-4 inline-block text-sm font-medium text-primary hover:underline"
             >
               Contact Support
-            </a>
+            </Link>
           </div>
         </div>
       </main>

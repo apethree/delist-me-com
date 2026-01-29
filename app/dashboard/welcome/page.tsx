@@ -13,7 +13,7 @@ export default function WelcomePage() {
   }, [])
 
   const handleContinue = () => {
-    router.push("/authorize")
+    router.push("/dashboard/authorize")
   }
 
   return (

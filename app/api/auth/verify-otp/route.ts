@@ -5,34 +5,32 @@ export async function POST(request: Request) {
   try {
     const { phone, otp } = await request.json()
 
-    if (!phone || phone.length !== 10) {
+    // Phone should be in full international format (e.g., +14159612582)
+    if (!phone || typeof phone !== 'string' || !phone.startsWith('+')) {
       return NextResponse.json(
-        { error: "Invalid phone number" },
+        { error: "Phone number must include country code" },
         { status: 400 }
       )
     }
 
     if (!otp || otp.length !== 6) {
       return NextResponse.json(
-        { error: "Invalid verification code" },
+        { error: "Please enter the 6-digit verification code" },
         { status: 400 }
       )
     }
 
     const supabase = await createClient()
 
-    // Format phone with country code
-    const formattedPhone = `+1${phone}`
-
-    // Verify OTP
+    // Verify OTP - phone is already in international format
     const { data, error } = await supabase.auth.verifyOtp({
-      phone: formattedPhone,
+      phone: phone,
       token: otp,
       type: "sms",
     })
 
     if (error) {
-      console.error("[v0] Verify OTP error:", error)
+      console.error("[OTP] Verify OTP error:", error)
       return NextResponse.json(
         { error: error.message },
         { status: 400 }
@@ -51,7 +49,7 @@ export async function POST(request: Request) {
       userId: data.user.id 
     })
   } catch (error) {
-    console.error("[v0] Verify OTP error:", error)
+    console.error("[OTP] Verify OTP error:", error)
     return NextResponse.json(
       { error: "Verification failed" },
       { status: 500 }

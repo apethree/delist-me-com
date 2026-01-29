@@ -19,7 +19,7 @@ export default async function DashboardPage() {
     .single()
 
   if (!profile?.onboarding_complete) {
-    redirect("/authorize")
+    redirect("/dashboard/authorize")
   }
 
   // Fetch removal requests with broker info
@@ -41,5 +41,5 @@ export default async function DashboardPage() {
     .eq("user_id", user.id)
     .order("created_at", { ascending: false })
 
-  return <DashboardClient profile={profile} requests={requests || []} />
+  return <DashboardClient profile={profile} requests={(requests as any) || []} />
 }
