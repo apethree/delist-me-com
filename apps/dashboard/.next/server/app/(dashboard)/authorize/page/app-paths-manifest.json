@@ -1,0 +1,3 @@
+{
+  "/(dashboard)/authorize/page": "app/(dashboard)/authorize/page.js"
+}

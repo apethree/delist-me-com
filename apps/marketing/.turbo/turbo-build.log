@@ -1,0 +1,14 @@
+
+
+> marketing@0.0.0 build /Users/narya/github/delist-me-com/apps/marketing
+> next build
+
+[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (Turbopack)
+- Environments: .env.local
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[32m[1m✓[22m[39m Compiled successfully in 3.6s
+[?25l[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[?25h[?25l[37m[1m [22m[39m Finished TypeScript in 3.2s  [36m.[39m[2K[1G[?25h[37m[1m [22m[39m Finished TypeScript in 3.2s    [32m[1m✓[22m[39m Finished TypeScript in 3.2s 
+[?25l[37m[1m [22m[39m Collecting page data using 9 workers  [36m.[39m[2K[1G[37m[1m [22m[39m Collecting page data using 9 workers  [36m..[39m[2K[1G[37m[1m [22m[39m Collecting page data using 9 workers  [36m...[39m[2K[1G[37m[1m [22m[39m Collecting page data using 9 workers  [36m.[39m[2K[1G[?25h[37m[1m [22m[39m Collecting page data using 9 workers in 805.3ms    [32m[1m✓[22m[39m Collecting page data using 9 workers in 805.3ms 
+[?25l[37m[1m [22m[39m Generating static pages using 9 workers (0/11)  [36m[    ][39m[2K[1G[?25hDEBUG: Page Home Rendering
+[?25h[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 130.[39m

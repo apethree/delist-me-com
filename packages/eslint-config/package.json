@@ -1,0 +1,15 @@
+{
+  "name": "@delistme/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "files": [
+    "base.js",
+    "nextjs.js"
+  ],
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.0.0",
+    "typescript": "^5.9.3"
+  }
+}

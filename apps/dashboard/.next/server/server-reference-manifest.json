@@ -1,0 +1,356 @@
+{
+  "node": {
+    "00f5df5e7e5abde59f1e9f7b721ae59c85cb8e51fc": {
+      "workers": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": {
+          "moduleId": 7286,
+          "async": false,
+          "exportedName": "detectKeylessEnvDriftAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(auth)/sign-up/[[...sign-up]]/page": {
+          "moduleId": 16428,
+          "async": false,
+          "exportedName": "detectKeylessEnvDriftAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/authorize/page": {
+          "moduleId": 61613,
+          "async": false,
+          "exportedName": "detectKeylessEnvDriftAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "detectKeylessEnvDriftAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/welcome/page": {
+          "moduleId": 44406,
+          "async": false,
+          "exportedName": "detectKeylessEnvDriftAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/_not-found/page": {
+          "moduleId": 98922,
+          "async": false,
+          "exportedName": "detectKeylessEnvDriftAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": "rsc",
+        "app/(auth)/sign-up/[[...sign-up]]/page": "rsc",
+        "app/(dashboard)/authorize/page": "rsc",
+        "app/(dashboard)/page": "rsc",
+        "app/(dashboard)/welcome/page": "rsc",
+        "app/_not-found/page": "rsc"
+      },
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js",
+      "exportedName": "detectKeylessEnvDriftAction"
+    },
+    "003bb2c8464b0163a2bf36d5017d08b9ad1aaf75be": {
+      "workers": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": {
+          "moduleId": 7286,
+          "async": false,
+          "exportedName": "invalidateCacheAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+        },
+        "app/(auth)/sign-up/[[...sign-up]]/page": {
+          "moduleId": 16428,
+          "async": false,
+          "exportedName": "invalidateCacheAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+        },
+        "app/(dashboard)/authorize/page": {
+          "moduleId": 61613,
+          "async": false,
+          "exportedName": "invalidateCacheAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+        },
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "invalidateCacheAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+        },
+        "app/(dashboard)/welcome/page": {
+          "moduleId": 44406,
+          "async": false,
+          "exportedName": "invalidateCacheAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+        },
+        "app/_not-found/page": {
+          "moduleId": 98922,
+          "async": false,
+          "exportedName": "invalidateCacheAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": "action-browser",
+        "app/(auth)/sign-up/[[...sign-up]]/page": "action-browser",
+        "app/(dashboard)/authorize/page": "action-browser",
+        "app/(dashboard)/page": "action-browser",
+        "app/(dashboard)/welcome/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      },
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js",
+      "exportedName": "invalidateCacheAction"
+    },
+    "00e858696065a3d815b6f81642c3296897d9078cde": {
+      "workers": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": {
+          "moduleId": 7286,
+          "async": false,
+          "exportedName": "createOrReadKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(auth)/sign-up/[[...sign-up]]/page": {
+          "moduleId": 16428,
+          "async": false,
+          "exportedName": "createOrReadKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/authorize/page": {
+          "moduleId": 61613,
+          "async": false,
+          "exportedName": "createOrReadKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "createOrReadKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/welcome/page": {
+          "moduleId": 44406,
+          "async": false,
+          "exportedName": "createOrReadKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/_not-found/page": {
+          "moduleId": 98922,
+          "async": false,
+          "exportedName": "createOrReadKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": "rsc",
+        "app/(auth)/sign-up/[[...sign-up]]/page": "rsc",
+        "app/(dashboard)/authorize/page": "rsc",
+        "app/(dashboard)/page": "rsc",
+        "app/(dashboard)/welcome/page": "rsc",
+        "app/_not-found/page": "rsc"
+      },
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js",
+      "exportedName": "createOrReadKeylessAction"
+    },
+    "004e78aef9e3c719a96469330034d9b90ccca037db": {
+      "workers": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": {
+          "moduleId": 7286,
+          "async": false,
+          "exportedName": "collectKeylessMetadata",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/(auth)/sign-up/[[...sign-up]]/page": {
+          "moduleId": 16428,
+          "async": false,
+          "exportedName": "collectKeylessMetadata",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/(dashboard)/authorize/page": {
+          "moduleId": 61613,
+          "async": false,
+          "exportedName": "collectKeylessMetadata",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "collectKeylessMetadata",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/(dashboard)/welcome/page": {
+          "moduleId": 44406,
+          "async": false,
+          "exportedName": "collectKeylessMetadata",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/_not-found/page": {
+          "moduleId": 98922,
+          "async": false,
+          "exportedName": "collectKeylessMetadata",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": "rsc",
+        "app/(auth)/sign-up/[[...sign-up]]/page": "rsc",
+        "app/(dashboard)/authorize/page": "rsc",
+        "app/(dashboard)/page": "rsc",
+        "app/(dashboard)/welcome/page": "rsc",
+        "app/_not-found/page": "rsc"
+      },
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js",
+      "exportedName": "collectKeylessMetadata"
+    },
+    "402e977da159ef7450612a4dcd7bb32fdce6e84d4b": {
+      "workers": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": {
+          "moduleId": 7286,
+          "async": false,
+          "exportedName": "formatMetadataHeaders",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/(auth)/sign-up/[[...sign-up]]/page": {
+          "moduleId": 16428,
+          "async": false,
+          "exportedName": "formatMetadataHeaders",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/(dashboard)/authorize/page": {
+          "moduleId": 61613,
+          "async": false,
+          "exportedName": "formatMetadataHeaders",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "formatMetadataHeaders",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/(dashboard)/welcome/page": {
+          "moduleId": 44406,
+          "async": false,
+          "exportedName": "formatMetadataHeaders",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        },
+        "app/_not-found/page": {
+          "moduleId": 98922,
+          "async": false,
+          "exportedName": "formatMetadataHeaders",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": "rsc",
+        "app/(auth)/sign-up/[[...sign-up]]/page": "rsc",
+        "app/(dashboard)/authorize/page": "rsc",
+        "app/(dashboard)/page": "rsc",
+        "app/(dashboard)/welcome/page": "rsc",
+        "app/_not-found/page": "rsc"
+      },
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js",
+      "exportedName": "formatMetadataHeaders"
+    },
+    "0011feefba86d2d39b6c59630e9a83feb02280bcc6": {
+      "workers": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": {
+          "moduleId": 7286,
+          "async": false,
+          "exportedName": "deleteKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(auth)/sign-up/[[...sign-up]]/page": {
+          "moduleId": 16428,
+          "async": false,
+          "exportedName": "deleteKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/authorize/page": {
+          "moduleId": 61613,
+          "async": false,
+          "exportedName": "deleteKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "deleteKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/welcome/page": {
+          "moduleId": 44406,
+          "async": false,
+          "exportedName": "deleteKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/_not-found/page": {
+          "moduleId": 98922,
+          "async": false,
+          "exportedName": "deleteKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": "action-browser",
+        "app/(auth)/sign-up/[[...sign-up]]/page": "action-browser",
+        "app/(dashboard)/authorize/page": "action-browser",
+        "app/(dashboard)/page": "action-browser",
+        "app/(dashboard)/welcome/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      },
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js",
+      "exportedName": "deleteKeylessAction"
+    },
+    "4016c61a66c6daa84775555504f038198ed3a89f36": {
+      "workers": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": {
+          "moduleId": 7286,
+          "async": false,
+          "exportedName": "syncKeylessConfigAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(auth)/sign-up/[[...sign-up]]/page": {
+          "moduleId": 16428,
+          "async": false,
+          "exportedName": "syncKeylessConfigAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/authorize/page": {
+          "moduleId": 61613,
+          "async": false,
+          "exportedName": "syncKeylessConfigAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "syncKeylessConfigAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/(dashboard)/welcome/page": {
+          "moduleId": 44406,
+          "async": false,
+          "exportedName": "syncKeylessConfigAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        },
+        "app/_not-found/page": {
+          "moduleId": 98922,
+          "async": false,
+          "exportedName": "syncKeylessConfigAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/[[...sign-in]]/page": "action-browser",
+        "app/(auth)/sign-up/[[...sign-up]]/page": "action-browser",
+        "app/(dashboard)/authorize/page": "action-browser",
+        "app/(dashboard)/page": "action-browser",
+        "app/(dashboard)/welcome/page": "action-browser",
+        "app/_not-found/page": "action-browser"
+      },
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js",
+      "exportedName": "syncKeylessConfigAction"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "a7BC041aitZIn9HiQzKgUoX6JiqQScbAdWMGhz4dlCM="
+}

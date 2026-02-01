@@ -1,0 +1,39 @@
+{
+  "app": {
+    "[project]/apps/marketing/app/(marketing)/about/page": [
+      "static/media/Geist_Variable-s.p.f19e4721.woff2",
+      "static/media/GeistMono_Variable.p.73882635.woff2"
+    ],
+    "[project]/apps/marketing/app/(marketing)/contact/page": [
+      "static/media/Geist_Variable-s.p.f19e4721.woff2",
+      "static/media/GeistMono_Variable.p.73882635.woff2"
+    ],
+    "[project]/apps/marketing/app/(marketing)/help/page": [
+      "static/media/Geist_Variable-s.p.f19e4721.woff2",
+      "static/media/GeistMono_Variable.p.73882635.woff2"
+    ],
+    "[project]/apps/marketing/app/(marketing)/page": [
+      "static/media/Geist_Variable-s.p.f19e4721.woff2",
+      "static/media/GeistMono_Variable.p.73882635.woff2"
+    ],
+    "[project]/apps/marketing/app/(marketing)/pricing/page": [
+      "static/media/Geist_Variable-s.p.f19e4721.woff2",
+      "static/media/GeistMono_Variable.p.73882635.woff2"
+    ],
+    "[project]/apps/marketing/app/(marketing)/privacy/page": [
+      "static/media/Geist_Variable-s.p.f19e4721.woff2",
+      "static/media/GeistMono_Variable.p.73882635.woff2"
+    ],
+    "[project]/apps/marketing/app/(marketing)/terms/page": [
+      "static/media/Geist_Variable-s.p.f19e4721.woff2",
+      "static/media/GeistMono_Variable.p.73882635.woff2"
+    ],
+    "[project]/apps/marketing/app/_not-found/page": [
+      "static/media/Geist_Variable-s.p.f19e4721.woff2",
+      "static/media/GeistMono_Variable.p.73882635.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

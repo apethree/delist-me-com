@@ -1,0 +1,3 @@
+{
+  "/api/auth/consent/route": "app/api/auth/consent/route.js"
+}

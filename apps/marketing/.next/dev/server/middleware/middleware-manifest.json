@@ -1,0 +1,35 @@
+{
+  "sorted_middleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/98ce4_next_dist_491be34c._.js",
+        "server/edge/chunks/4b6e4_@opentelemetry_api_build_esm_9b4beb88._.js",
+        "server/edge/chunks/0d320_@supabase_realtime-js_dist_module_d6880e06._.js",
+        "server/edge/chunks/2c331_@supabase_auth-js_dist_module_9943e217._.js",
+        "server/edge/chunks/node_modules__pnpm_4819bb05._.js",
+        "server/edge/chunks/[root-of-the-server]__6447f8f5._.js",
+        "server/edge/chunks/aa926_next_dist_esm_build_templates_edge-wrapper_ad2b5733.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*){(\\\\.json)}?",
+          "originalSource": "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "aZUpLpIag+PEoxkQZey5fFxfnWugwVC97yCTXFR9Rmk=",
+        "__NEXT_PREVIEW_MODE_ID": "2bf4a09ce0a6f1476b55366956d258ac",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "824231f31263623c2fb86959b74ae9b04d0a782b383a0e182ca5345f8727adb4",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "474f97de8461415ff5e827ad1a254ee8bc7dbb6d6a4b71b7a355ae916015e681"
+      }
+    }
+  },
+  "instrumentation": null,
+  "functions": {}
+}

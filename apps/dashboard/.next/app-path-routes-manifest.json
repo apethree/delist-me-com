@@ -1,0 +1,14 @@
+{
+  "/(auth)/sign-in/[[...sign-in]]/page": "/sign-in/[[...sign-in]]",
+  "/(auth)/sign-up/[[...sign-up]]/page": "/sign-up/[[...sign-up]]",
+  "/(dashboard)/authorize/page": "/authorize",
+  "/(dashboard)/page": "/",
+  "/(dashboard)/welcome/page": "/welcome",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/auth/consent/route": "/api/auth/consent",
+  "/api/auth/send-otp/route": "/api/auth/send-otp",
+  "/api/auth/sign-out/route": "/api/auth/sign-out",
+  "/api/auth/verify-otp/route": "/api/auth/verify-otp",
+  "/api/chat/route": "/api/chat"
+}

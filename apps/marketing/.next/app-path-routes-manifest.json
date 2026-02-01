@@ -1,0 +1,13 @@
+{
+  "/(marketing)/about/page": "/about",
+  "/(marketing)/contact/page": "/contact",
+  "/(marketing)/help/page": "/help",
+  "/(marketing)/page": "/",
+  "/(marketing)/pricing/page": "/pricing",
+  "/(marketing)/privacy/page": "/privacy",
+  "/(marketing)/terms/page": "/terms",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml"
+}

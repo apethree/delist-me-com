@@ -1,0 +1,20 @@
+{
+  "extends": "@delistme/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@delistme/ui": ["../../packages/ui/src"],
+      "@delistme/ui/*": ["../../packages/ui/src/*"],
+      "@delistme/shared": ["../../packages/shared/src"],
+      "@delistme/shared/*": ["../../packages/shared/src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

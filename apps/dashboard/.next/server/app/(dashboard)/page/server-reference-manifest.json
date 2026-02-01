@@ -1,0 +1,110 @@
+{
+  "node": {
+    "00f5df5e7e5abde59f1e9f7b721ae59c85cb8e51fc": {
+      "workers": {
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "detectKeylessEnvDriftAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/page": "rsc"
+      },
+      "exportedName": "detectKeylessEnvDriftAction",
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+    },
+    "003bb2c8464b0163a2bf36d5017d08b9ad1aaf75be": {
+      "workers": {
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "invalidateCacheAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/page": "action-browser"
+      },
+      "exportedName": "invalidateCacheAction",
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+    },
+    "00e858696065a3d815b6f81642c3296897d9078cde": {
+      "workers": {
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "createOrReadKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/page": "rsc"
+      },
+      "exportedName": "createOrReadKeylessAction",
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+    },
+    "004e78aef9e3c719a96469330034d9b90ccca037db": {
+      "workers": {
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "collectKeylessMetadata",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/page": "rsc"
+      },
+      "exportedName": "collectKeylessMetadata",
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+    },
+    "402e977da159ef7450612a4dcd7bb32fdce6e84d4b": {
+      "workers": {
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "formatMetadataHeaders",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/page": "rsc"
+      },
+      "exportedName": "formatMetadataHeaders",
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+    },
+    "0011feefba86d2d39b6c59630e9a83feb02280bcc6": {
+      "workers": {
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "deleteKeylessAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/page": "action-browser"
+      },
+      "exportedName": "deleteKeylessAction",
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+    },
+    "4016c61a66c6daa84775555504f038198ed3a89f36": {
+      "workers": {
+        "app/(dashboard)/page": {
+          "moduleId": 91153,
+          "async": false,
+          "exportedName": "syncKeylessConfigAction",
+          "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/page": "action-browser"
+      },
+      "exportedName": "syncKeylessConfigAction",
+      "filename": "node_modules/.pnpm/@clerk+nextjs@6.37.1_next@16.1.6_@opentelemetry+api@1.9.0_react-dom@19.2.4_react@19.2.4__reac_awnkl6few5ol2q5o274uzvmrd4/node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+    }
+  },
+  "edge": {}
+}

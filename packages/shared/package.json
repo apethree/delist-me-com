@@ -1,0 +1,50 @@
+{
+  "name": "@delistme/shared",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./supabase": {
+      "types": "./src/supabase/index.ts",
+      "default": "./src/supabase/index.ts"
+    },
+    "./supabase/client": {
+      "types": "./src/supabase/client.ts",
+      "default": "./src/supabase/client.ts"
+    },
+    "./supabase/server": {
+      "types": "./src/supabase/server.ts",
+      "default": "./src/supabase/server.ts"
+    },
+    "./supabase/proxy": {
+      "types": "./src/supabase/proxy.ts",
+      "default": "./src/supabase/proxy.ts"
+    },
+    "./stripe": {
+      "types": "./src/stripe/index.ts",
+      "default": "./src/stripe/index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@supabase/ssr": "0.8.0",
+    "@supabase/supabase-js": "^2.93.2",
+    "@stripe/stripe-js": "^8.7.0",
+    "stripe": "^20.3.0"
+  },
+  "devDependencies": {
+    "@delistme/tsconfig": "workspace:*",
+    "@types/node": "^25.1.0",
+    "next": "16.1.6",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "next": ">=14.0.0"
+  }
+}

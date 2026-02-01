@@ -1,0 +1,3 @@
+module.exports=[36416,a=>{"use strict";var b=a.i(93318);a.i(52466);var c=a.i(24408),d=a.i(41780);async function e({children:a}){let e=await (0,d.createClient)(),{data:{user:f},error:g}=await e.auth.getUser();return(g||!f)&&(0,c.redirect)("/auth/login"),(0,b.jsx)("div",{className:"min-h-screen bg-background",children:a})}a.s(["default",()=>e])}];
+
+//# sourceMappingURL=apps_dashboard_app_%28dashboard%29_layout_tsx_e685f8bd._.js.map

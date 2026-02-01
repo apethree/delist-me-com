@@ -1,0 +1,20 @@
+
+
+> dashboard@0.0.0 build /Users/narya/github/delist-me-com/apps/dashboard
+> next build
+
+[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (Turbopack)
+- Environments: .env.local
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[32m[1m✓[22m[39m Compiled successfully in 3.4s
+[?25l[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[?25h[?25l[37m[1m [22m[39m Finished TypeScript in 3.2s  [36m.[39m[2K[1G[?25h[37m[1m [22m[39m Finished TypeScript in 3.2s    [32m[1m✓[22m[39m Finished TypeScript in 3.2s 
+[?25l[37m[1m [22m[39m Collecting page data using 9 workers  [36m.[39m[2K[1G[37m[1m [22m[39m Collecting page data using 9 workers  [36m..[39m[2K[1G[37m[1m [22m[39m Collecting page data using 9 workers  [36m...[39m[2K[1G[37m[1m [22m[39m Collecting page data using 9 workers  [36m.[39m[2K[1G[37m[1m [22m[39m Collecting page data using 9 workers  [36m..[39m[2K[1G[?25h[37m[1m [22m[39m Collecting page data using 9 workers in 900.9ms    [32m[1m✓[22m[39m Collecting page data using 9 workers in 900.9ms 
+[?25l[37m[1m [22m[39m Generating static pages using 9 workers (0/10)  [36m[    ][39m[2K[1G[?25hError occurred prerendering page "/_not-found". Read more: https://nextjs.org/docs/messages/prerender-error
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_placeholder)
+    at [3mignore-listed frames[23m {
+  digest: [32m'3706868019'[39m
+}
+Export encountered an error on /_not-found/page: /_not-found, exiting the build.
+[31m[31m[1m⨯[22m[39m Next.js build worker exited with code: 1 and signal: null[39m
+[?25h[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m
