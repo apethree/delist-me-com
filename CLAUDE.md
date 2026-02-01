@@ -6,12 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 DelistMe is a privacy-focused SaaS application that helps users remove their personal information from data brokers. This is a **monorepo** managed with Turborepo and pnpm workspaces.
 
+**Primary Platform:** React Native mobile app (iOS/Android/Web) via Expo.
+**Backend:** Supabase (PostgreSQL + Auth + Storage + Edge Functions).
+
 ## Monorepo Structure
 
 ### Apps (`apps/`)
-- **`apps/marketing`** - Public-facing static website (landing, pricing, about). Next.js with static export. Runs on port 3000.
-- **`apps/dashboard`** - Main SaaS application with Clerk authentication and Stripe. Next.js App Router. Runs on port 3001.
-- **`apps/delistme-mobile`** - Mobile app (iOS/Android) built with Expo. Runs on port 3002 for web preview.
+- **`apps/delistme-mobile`** - **PRIMARY APP** - Cross-platform mobile app (iOS/Android/Web) built with Expo and React Native. This is the main user-facing application.
+- **`apps/marketing`** - Public-facing static website (landing, pricing, about). Next.js with static export.
 
 ### Packages (`packages/`)
 - **`packages/ui`** - Shared UI components (shadcn/ui, HeroUI), Tailwind config, styles
@@ -19,14 +21,18 @@ DelistMe is a privacy-focused SaaS application that helps users remove their per
 - **`packages/eslint-config`** - Shared ESLint configurations
 - **`packages/tsconfig`** - Shared TypeScript configurations
 
+### Project Management (`project-management/`)
+- **`BACKEND_ROADMAP.md`** - Complete backend architecture, schema, and planning
+- **`BACKEND_CHECKLIST.md`** - Implementation tracking for all backend tasks
+- Track progress and update these files as work progresses
+
 ## Commands
 
 ### Development
 ```bash
 pnpm dev                    # Start all apps in parallel (Turborepo)
 pnpm dev:marketing          # Start marketing app only (port 3000)
-pnpm dev:dashboard          # Start dashboard app only (port 3001)
-pnpm dev:mobile             # Start mobile app only (port 3002 or Expo)
+pnpm dev:mobile             # Start mobile app (Expo) - PRIMARY APP
 ```
 
 ### Building & Production
@@ -60,22 +66,33 @@ npx expo run:android        # Run on Android emulator
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router, React 19, TypeScript 5.9)
-- **Mobile**: Expo (React Native)
-- **Styling**: Tailwind CSS 4, shadcn/ui, HeroUI
-- **Auth**: Clerk (dashboard), Supabase Auth (shared)
-- **Database**: Supabase (PostgreSQL)
-- **Payments**: Stripe
-- **AI**: Vercel AI SDK with OpenRouter/OpenAI
-- **Animations**: Framer Motion
+### Frontend (Mobile-First)
+- **Primary App**: Expo (React Native) - iOS, Android, Web
+- **Marketing Site**: Next.js 16 (App Router, React 19, TypeScript 5.9)
+- **Styling**: NativeWind v4, Tailwind CSS, shadcn/ui
+- **Icons**: expo-symbols (SF Symbols on iOS, Material on Android, Lucide fallback on web)
+- **Animations**: React Native Reanimated, Expo
+
+### Backend
+- **Database**: Supabase (PostgreSQL with RLS)
+- **Auth**: Supabase Auth (OTP, Magic Links, OAuth)
+- **Storage**: Supabase Storage
+- **Functions**: Supabase Edge Functions (TypeScript/Deno)
+- **Realtime**: Supabase Realtime
+- **Payments**: Stripe (subscriptions, webhooks)
+- **Notifications**: Expo Push, Email (Resend), SMS (Twilio)
+
+### Infrastructure
 - **Monorepo**: Turborepo, pnpm workspaces
+- **CI/CD**: GitHub Actions
+- **Hosting**: Vercel (marketing), Supabase (backend), EAS (mobile)
 
 ## Architecture
 
 ### Authentication
-- **Dashboard app**: Uses Clerk for authentication with `ClerkProvider`
-- **Shared package**: Contains Supabase client/server utilities for other auth flows
-- Supabase auth setup includes proxy configuration in `packages/shared/src/supabase/`
+- **Mobile app (Primary)**: Supabase Auth with phone OTP, magic links, OAuth (Google, Apple)
+- **Backend**: Supabase RLS (Row Level Security) for data access control
+- Auth utilities in `apps/delistme-mobile/lib/supabase/`
 
 ### Shared Packages Pattern
 Import shared code using workspace aliases:
@@ -99,12 +116,11 @@ Database migrations are managed in `supabase/migrations/`. Run migrations with S
 
 Each app requires its own `.env.local`:
 
-**Dashboard** (`apps/dashboard/.env.local`):
+**Mobile App (Primary)** (`apps/delistme-mobile/.env.local`):
 ```
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-CLERK_SECRET_KEY
-NEXT_PUBLIC_CLERK_SIGN_IN_URL
-NEXT_PUBLIC_CLERK_SIGN_UP_URL
+EXPO_PUBLIC_SUPABASE_URL
+EXPO_PUBLIC_SUPABASE_ANON_KEY
+EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY
 ```
 
 **Marketing** (`apps/marketing/.env.local`):
@@ -113,12 +129,7 @@ NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY
 ```
 
-**Mobile** (`apps/delistme-mobile/.env.local`):
-```
-EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY
-```
-
-**Root** (`.env.local` - for Supabase CLI):
+**Root** (`.env.local` - for Supabase CLI, Edge Functions):
 ```
 NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -155,17 +166,52 @@ UI components from `packages/ui` include:
 Import with: `import { Button, Card } from '@delistme/ui'`
 
 ### API Routes Structure
+- **Mobile app**: No API routes (uses Supabase Edge Functions)
 - **Marketing app**: Minimal/no API routes (static site)
-- **Dashboard app**: API routes in `apps/dashboard/app/api/`
+- **Backend**: Supabase Edge Functions in `supabase/functions/`
 
 ### Utility Pattern
 ```typescript
 import { cn } from '@delistme/ui'  // Tailwind class merging (from packages/ui)
 ```
 
+## Project Management
+
+Backend development progress is tracked in:
+- **`project-management/BACKEND_ROADMAP.md`** - Architecture, schema, integrations
+- **`project-management/BACKEND_CHECKLIST.md`** - Task tracking (update as work progresses)
+
+**IMPORTANT:** When completing backend tasks:
+1. Update the checklist with ✅ marks
+2. Update progress percentages
+3. Document any deviations from the plan
+
+## Mobile-First Best Practices
+
+### Performance
+- Use `React.memo` for expensive components
+- Use `useCallback` and `useMemo` appropriately
+- Lazy load heavy screens with `React.lazy`
+- Optimize images with Expo Image
+- Use FlashList for long lists (not FlatList)
+
+### Offline-First
+- Cache data locally with AsyncStorage or SQLite
+- Implement optimistic updates
+- Queue mutations for sync when online
+- Use Supabase Realtime for live updates
+
+### Native Feel
+- Use expo-symbols for iOS-native icons
+- Implement haptic feedback (expo-haptics)
+- Use platform-specific UI patterns
+- Respect safe areas with SafeAreaView
+- Use native animations (Reanimated)
+
 ## Communication Guidelines
 
 - **Be concise**: Keep responses short and to the point
-- **No unnecessary files**: Do not create summary files, README files, DESIGN_SYSTEM.md, or documentation unless explicitly requested
-- **Token efficiency**: Minimize token usage - code first, explain briefly
+- **Mobile-first**: Optimize for mobile performance and UX
+- **No unnecessary files**: Do not create summary files, README files, DESIGN_SYSTEM.md unless explicitly requested
+- **Token efficiency**: Code first, explain briefly
 - **Direct answers**: Provide solutions without excessive explanation
