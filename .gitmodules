@@ -1,0 +1,4 @@
+[submodule "apps/delistme-com/delistme-mobile/src/reference/heroui-native"]
+	path = apps/delistme-com/delistme-mobile/src/reference/heroui-native
+	url = https://github.com/heroui-inc/heroui-native.git
+	branch = beta
